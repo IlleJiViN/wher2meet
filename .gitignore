@@ -1,0 +1,11 @@
+.env
+node_modules/
+dist/
+*.log
+*.zip
+*.csv
+__pycache__/
+data/
+venv/
+scratch/
+.antigravitycli/

@@ -1,0 +1,2349 @@
+[32madd64[0m/resolute 3.9.3-0ubuntu4 amd64
+  additive synthesizer for JACK
+
+[32maeolus[0m/resolute 0.10.4-1build4 amd64
+  Synthesised pipe organ emulator
+
+[32maespipe[0m/resolute 2.4h-1build1 amd64
+  AES-encryption tool with loop-AES support
+
+[32malgol68g[0m/resolute 3.1.2-1.2 amd64
+  Implementation of Algol 68 as defined by the Revised Report
+
+[32mamavisd-new[0m/resolute 1:2.13.0-7ubuntu2 all
+  Interface between MTA and virus scanner/content filters
+
+[32mamavisd-new-postfix[0m/resolute 1:2.13.0-7ubuntu2 all
+  part of Ubuntu mail stack provided by Ubuntu server team
+
+[32mampr-ripd[0m/resolute 2.4.1-1build1 amd64
+  Routing daemon for AMPRnet gateway announcements
+
+[32mamule-gnome-support[0m/resolute 1:2.3.3-3.2 all
+  ed2k links handling support for GNOME web browsers
+
+[32manonip[0m/resolute 1.1.0-2.1build1 all
+  Anonymize IP-addresses in log-files
+
+[32many2fasta[0m/resolute 0.4.2-2build1 all
+  convert various sequence formats to FASTA
+
+[32many2fasta-examples[0m/resolute 0.4.2-2build1 all
+  convert various sequence formats to FASTA (example data)
+
+[32mapertium-anaphora[0m/resolute 1.1.1-1build5 amd64
+  Anaphora resolution module for Apertium
+
+[32mapertium-lex-tools[0m/resolute 0.5.0-1build3 amd64
+  Constraint-based lexical selection module
+
+[32mapertium-lex-tools-dev[0m/resolute 0.5.0-1build3 amd64
+  Development library for Apertium lexical selection module
+
+[32martfastqgenerator[0m/resolute 0.0.20150519-5build1 all
+  outputs artificial FASTQ files derived from a reference genome
+
+[32martfastqgenerator-doc[0m/resolute 0.0.20150519-5build1 all
+  outputs artificial FASTQ files derived from a reference genome (doc)
+
+[32martfastqgenerator-examples[0m/resolute 0.0.20150519-5build1 all
+  outputs artificial FASTQ files derived from a reference genome (examples)
+
+[32massimp-testmodels[0m/resolute 6.0.4+ds-1build1 all
+  assimp 3D model import library (testdata)
+
+[32massimp-utils[0m/resolute 6.0.4+ds-1build1 amd64
+  3D model import library (utilities)
+
+[32mastro-datareduction[0m/resolute 5.0 all
+  Data reduction pipelines for astronomy
+
+[32mastro-radioastronomy[0m/resolute 5.0 all
+  Radio Astronomy Software
+
+[32mastromatic[0m/resolute 1.3build1 all
+  Astronomical pipeline software collection
+
+[32maugur[0m/resolute 24.4.0-3 all
+  pipeline components for real-time virus analysis
+
+[32mbar[0m/resolute 1.11.1-4build1 amd64
+  Show information about a data transfer
+
+[32mbaresip-gstreamer[0m/resolute 1.1.0-3build3 amd64
+  portable and modular SIP user-agent - GStreamer pipelines
+
+[32mbcbio[0m/resolute 1.2.9-4 all
+  toolkit for analysing high-throughput sequencing data
+
+[32mbedtools[0m/resolute 2.31.1+dfsg-3 amd64
+  suite of utilities for comparing genomic features
+
+[32mberkeley-express[0m/resolute 1.5.3+dfsg-7 amd64
+  Streaming quantification for high-throughput sequencing
+
+[32mberkeley-express-doc[0m/resolute 1.5.3+dfsg-7 all
+  Documentation for RNA-Seq tool eXpress
+
+[32mbio-tradis[0m/resolute 1.4.5+dfsg2-2build1 all
+  analyse the output from TraDIS analyses of genomic sequences
+
+[32mbleachbit[0m/resolute 5.0.2-1 all
+  delete unnecessary files from the system
+
+[32mbuffer[0m/resolute 1.19-12.1build1 amd64
+  Buffering/reblocking program for tape backups, printing, etc.
+
+[32mcamitk-actionstatemachine[0m/resolute 6.0.0-3 amd64
+  pipeline replay application for the CamiTK library
+
+[32mcanu[0m/resolute 2.2+dfsg-5build1 amd64
+  single molecule sequence assembler for genomes
+
+[32mcat-bat[0m/resolute 6.0.1-1 amd64
+  taxonomic classification of contigs and metagenome-assembled genomes (MAGs)
+
+[32mcava[0m/resolute 0.10.7+dfsg-1 amd64
+  Console-based Audio Visualizer for Alsa
+
+[32mcgview[0m/resolute 0.0.20100111-7build1 all
+  Circular Genome Viewer
+
+[32mcl-pipes[0m/resolute 1.2.1-5.3 all
+  Common Lisp library for pipes or streams
+
+[32mcolmap[0m/resolute 3.12.6-4 amd64
+  Structure-from-Motion and Multi-View Stereo
+
+[32mcolorized-logs[0m/resolute 2.7-1build1 amd64
+  tools for consuming logs with ANSI color
+
+[32mconky-cli[0m/resolute 1.22.2-1build1 amd64
+  highly configurable system monitor (basic version)
+
+[32mcourier-authlib-pipe[0m/resolute 0.72.6-4 amd64
+  External authentication support for the Courier authentication library
+
+[32mcpipe[0m/resolute 3.0.1-2.1build1 amd64
+  data pipe forwarding utility for performance monitoring
+
+[32mcrm114[0m/resolute 20100106-11build1 amd64
+  versatile classifier for e-mail and other data
+
+[32mcstream[0m/resolute 4.0.0-1build1 amd64
+  general-purpose stream-handling tool similar to dd
+
+[32mcw[0m/resolute 3.6.1-2build1 amd64
+  Morse code tutor - command line user interface
+
+[32mdar[0m/resolute 2.8.3-1build1 amd64
+  Disk ARchive: Backup directory tree and files
+
+[32mdar-docs[0m/resolute 2.8.3-1build1 all
+  Disk ARchive: Backup directory tree and files
+
+[32mdar-static[0m/resolute 2.8.3-1build1 amd64
+  Disk ARchive: Backup directory tree and files
+
+[32mdascrubber[0m/resolute 1.1-4build1 amd64
+  alignment-based scrubbing pipeline for DNA sequencing reads
+
+[32mdatamash[0m/resolute 1.9-2 amd64
+  statistics tool for command-line interface
+
+[32mdatapacker[0m/resolute 1.0.3+nmu1build1 amd64
+  Tool to pack files into minimum number of CDs/DVDs/etc
+
+[32mdcfldd[0m/resolute 1.9.3-2 amd64
+  enhanced version of dd for forensics and security
+
+[32mdidder[0m/resolute 1.3.0-1build1 amd64
+  Extensive, fast, and accurate command-line image dithering tool
+
+[32mdiffoscope[0m/resolute 314 all
+  in-depth visual diff tool for files, archives and directories
+
+[32mdiffoscope-minimal[0m/resolute 314 all
+  in-depth visual diff tool for files, archives and directories (minimal package)
+
+[32me-wrapper[0m/resolute 0.2-1build1 all
+  invoke your editor, with optional file:lineno handling
+
+[32mea-utils[0m/resolute 1.1.2+dfsg-9build3 amd64
+  command-line tools for processing biological sequencing data
+
+[32measyeffects[0m/resolute 8.1.2+ds-1 amd64
+  Audio effects for PipeWire applications
+
+[32melpa-pip-requirements[0m/resolute 0.5-4build1 all
+  major mode for editing pip requirements files
+
+[32mepiphany[0m/resolute 0.7.0+0-8 amd64
+  clone of Boulder Dash game
+
+[32mepiphany-browser[0m/resolute 49.2-3ubuntu1 amd64
+  Intuitive GNOME web browser
+
+[32mepiphany-browser-data[0m/resolute 49.2-3ubuntu1 all
+  Data files for the GNOME web browser
+
+[32mepiphany-data[0m/resolute 0.7.0+0-8 all
+  required data files for epiphany game
+
+[32merlang-redis-client[0m/resolute 1.2.0-8build1 amd64
+  Redis client for Erlang applications
+
+[32mesorex[0m/resolute 3.13.7+ds-2 amd64
+  Execution Tool for European Southern Observatory pipelines
+
+[32mextsmail[0m/resolute 2.5-3build1 amd64
+  enables the robust sending of e-mail to external commands
+
+[32mfarbfeld[0m/resolute 4-3build3 amd64
+  Lossless image format which is easy to parse, pipe and compress
+
+[32mfastaq[0m/resolute 3.17.0-9build1 all
+  FASTA and FASTQ file manipulation tools
+
+[32mfastqc[0m/resolute 0.12.1+dfsg-4build1 all
+  quality control for high throughput sequence data
+
+[32mfdm[0m/resolute 2.2+git20250202-3 amd64
+  fetching, filtering and delivering emails
+
+[32mfeedgnuplot[0m/resolute 1.64-1 all
+  Pipe-oriented frontend to Gnuplot
+
+[32mfilespooler[0m/resolute 1.2.4-1 amd64
+  Sequential, distributed, POSIX-style job queue processing
+
+[32mfilter[0m/resolute 2.6.3+ds1-6 amd64
+  program that filters local email via forward/pipe
+
+[32mflye[0m/resolute 2.9.6+dfsg-2 amd64
+  de novo assembler for single molecule sequencing reads using repeat graphs
+
+[32mforensics-all[0m/resolute 3.63 all
+  Debian Forensics Environment - essential components (metapackage)
+
+[32mgaffitter[0m/resolute 0.6.0-5 amd64
+  File subsets extractor based on genetic algorithms
+
+[32mgcli[0m/resolute 2.9.1-1 amd64
+  Git Forge CLI
+
+[32mgetmail6[0m/resolute 6.19.12-1 all
+  mail retriever with support for POP3, IMAP4 and SDPS
+
+[32mgff2aplot[0m/resolute 2.0-15build1 amd64
+  pair-wise alignment-plots for genomic sequences in PostScript
+
+[32mgir1.2-mutter-18[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  GObject introspection data for Mutter
+
+[32mgir1.2-wp-0.5[0m/resolute 0.5.13-1ubuntu1 amd64
+  GObject introspection files for WirePlumber
+
+[32mgitlint[0m/resolute 0.19.1-7 all
+  Git commit message linter
+
+[32mglab[0m/resolute 1.53.0-1build1 amd64
+  commandline interface for gitlab instances
+
+[32mgnome-remote-desktop[0m/resolute 50.0-0ubuntu2 amd64
+  Remote desktop daemon for GNOME using PipeWire
+
+[32mgnome-shell-extension-pipewire-settings[0m/resolute 9-0ubuntu1 all
+  Minimal PipeWire configuration menu for Gnome Shell
+
+[32mgoby-java[0m/resolute 3.3.1+dfsg2-12 all
+  next-generation sequencing data and results analysis tool
+
+[32mgolang-github-akosmarton-papipes-dev[0m/resolute 0.0~git20201027.3c63b49-2 all
+  Pulseaudio client library for creating virtual sinks and sources
+
+[32mgolang-github-azure-azure-pipeline-go-dev[0m/resolute 0.2.3-1 all
+  HTTP request/response middleware pipeline
+
+[32mgolang-github-azure-go-autorest-dev[0m/resolute 14.2.0+git20220726.711dde1-1 all
+  HTTP request pipeline suitable for use across multiple go-routines
+
+[32mgolang-github-biogo-biogo-dev[0m/resolute 1.0.4-1build1 all
+  biogo is a bioinformatics library for Go (library)
+
+[32mgolang-github-bradenaw-juniper-dev[0m/resolute 0.15.3-1 all
+  extension to the Go standard library (library)
+
+[32mgolang-github-dcso-bloom-cli[0m/resolute 0.2.4-3build2 amd64
+  highly efficient bloom filter implementation for Go, CLI tool
+
+[32mgolang-github-dsnet-golib-dev[0m/resolute 0.0~git20171103.1ea1667-1.1 all
+  Collection of mostly unrelated helper Go packages
+
+[32mgolang-github-emersion-go-smtp-dev[0m/resolute 0.24.0-1 all
+  ESMTP client & server library written in Go (library)
+
+[32mgolang-github-go-redis-redis-dev[0m/resolute 6.15.0-2 all
+  Type safe Redis client for Go
+
+[32mgolang-github-gomodule-redigo-dev[0m/resolute 1:1.9.3-1 all
+  Go client for Redis
+
+[32mgolang-github-howeyc-gopass-dev[0m/resolute 0.0~git20190910.7cb4b85+dfsg.1-1 all
+  getpasswd for Go
+
+[32mgolang-github-htcat-htcat-dev[0m/resolute 1.0.2-1.1 all
+  Parallel and Pipelined HTTP GET Utility for golang
+
+[32mgolang-github-hydrogen18-memlistener-dev[0m/resolute 0.0~git20200120.dcc25e7-2 all
+  In-memory listener for testing socket & HTTP servers in Golang (library)
+
+[32mgolang-github-inconshreveable-muxado-dev[0m/resolute 0.0~git20140312.0.f693c7e-3 all
+  Stream multiplexing for Go
+
+[32mgolang-github-jaypipes-pcidb-dev[0m/resolute 1.1.1-1 all
+  Small golang library for querying PCI database (pciids) information (library)
+
+[32mgolang-github-katalix-go-l2tp-dev[0m/resolute 0.1.8-1build1 all
+  Go library for building L2TP applications on Linux systems (library)
+
+[32mgolang-github-marstr-collection-dev[0m/resolute 2.0.0-1 all
+  implementation of a few basic data structures
+
+[32mgolang-github-microsoft-go-winio-dev[0m/resolute 0.6.2-1 all
+  Win32 IO-related utilities for Go (library)
+
+[32mgolang-github-olekukonko-ll-dev[0m/resolute 0.1.3-1 all
+  Modern structured logging library for Go
+
+[32mgolang-github-samber-slog-multi-dev[0m/resolute 1.7.1-1 all
+  design workflows of slog handlers
+
+[32mgolang-github-shenwei356-stable-dev[0m/resolute 0.1.7-2 all
+  streaming pretty text table for Golang (library)
+
+[32mgolang-github-shenwei356-util-dev[0m/resolute 0.5.5-1 all
+  Golang utility packages (library)
+
+[32mgolang-github-sigstore-sigstore-dev[0m/resolute 1.10.4-1 all
+  Common go library shared across sigstore services and clients (library)
+
+[32mgolang-github-thomasrooney-gexpect-dev[0m/resolute 0.0~git20161231.5482f03-4 all
+  pure golang expect library
+
+[32mgolang-gopkg-redis.v5-dev[0m/resolute 5.2.9-4 all
+  type-safe Redis client for Golang
+
+[32mgosu[0m/resolute 1.19-1 amd64
+  Simple Go-based setuid+setgid+setgroups+exec
+
+[32mgrandorgue[0m/resolute 3.17.0-1 amd64
+  sample-based pipe organ simulator
+
+[32mgrandorgue-demo[0m/resolute 3.17.0-1 all
+  sample-based pipe organ simulator (demo sampleset)
+
+[32mgstreamer1.0-pipewire[0m/resolute 1.6.2-1ubuntu1 amd64
+  GStreamer 1.0 plugin for the PipeWire multimedia server
+
+[32mguile-library[0m/resolute 0.2.8.1-2build1 amd64
+  Library of useful Guile modules
+
+[32mhelvum[0m/resolute 0.5.1+20240829-2 amd64
+  GTK patchbay for pipewire
+
+[32mhtml-xml-utils[0m/resolute 7.7-1.3 amd64
+  HTML and XML manipulation utilities
+
+[32mhunspell[0m/resolute 1.7.2+really1.7.2-11 amd64
+  spell checker and morphological analyzer (program)
+
+[32mhunspell-af[0m/resolute 1:25.2.3-1build1 all
+  Afrikaans dictionary for hunspell
+
+[32mhunspell-an[0m/resolute 1:25.2.3-1build1 all
+  Aragonese dictionary for hunspell
+
+[32mhunspell-bg[0m/resolute 1:25.2.3-1build1 all
+  Bulgarian dictionary for hunspell
+
+[32mhunspell-bn[0m/resolute 1:25.2.3-1build1 all
+  Bengali dictionary for hunspell
+
+[32mhunspell-bs[0m/resolute 1:25.2.3-1build1 all
+  Bosnian dictionary for hunspell
+
+[32mhunspell-cs[0m/resolute 1:25.2.3-1build1 all
+  Czech dictionary for hunspell
+
+[32mhunspell-da[0m/resolute 1:25.2.3-1build1 all
+  Danish dictionary for hunspell
+
+[32mhunspell-de-at-frami[0m/resolute 1:25.2.3-1build1 all
+  German (Austria) dictionary for hunspell ("frami" version)
+
+[32mhunspell-de-ch-frami[0m/resolute 1:25.2.3-1build1 all
+  German (Switzerland) dictionary for hunspell ("frami" version)
+
+[32mhunspell-de-de-frami[0m/resolute 1:25.2.3-1build1 all
+  German dictionary for hunspell ("frami" version)
+
+[32mhunspell-el[0m/resolute 1:25.2.3-1build1 all
+  Modern Greek dictionary for hunspell
+
+[32mhunspell-en-au[0m/resolute 1:2020.12.07-4build1 all
+  English (Australia) dictionary for hunspell
+
+[32mhunspell-en-ca[0m/resolute 1:2020.12.07-4build1 all
+  English (Canada) dictionary for hunspell
+
+[32mhunspell-en-gb[0m/resolute 1:25.2.3-1build1 all
+  English (GB) dictionary for hunspell
+
+[32mhunspell-en-us[0m/resolute 1:2020.12.07-4build1 all
+  English_american dictionary for hunspell
+
+[32mhunspell-en-za[0m/resolute 1:25.2.3-1build1 all
+  English (South Africa) dictionary for hunspell
+
+[32mhunspell-eo[0m/resolute 1:25.2.3-1build1 all
+  Esperanto dictionary for hunspell
+
+[32mhunspell-es[0m/resolute 1:25.2.3-1build1 all
+  Spanish dictionary for hunspell
+
+[32mhunspell-gd[0m/resolute 1:25.2.3-1build1 all
+  Scottish Gaelic dictionary for hunspell
+
+[32mhunspell-gl[0m/resolute 1:25.2.3-1build1 all
+  Galician dictionary for hunspell
+
+[32mhunspell-gu[0m/resolute 1:25.2.3-1build1 all
+  Gujarati dictionary for hunspell
+
+[32mhunspell-gug[0m/resolute 1:25.2.3-1build1 all
+  Guarani dictionary for hunspell
+
+[32mhunspell-he[0m/resolute 1:25.2.3-1build1 all
+  Hebrew dictionary for hunspell
+
+[32mhunspell-hi[0m/resolute 1:25.2.3-1build1 all
+  Hindi dictionary for hunspell
+
+[32mhunspell-hr[0m/resolute 1:25.2.3-1build1 all
+  Croatian dictionary for hunspell
+
+[32mhunspell-hu[0m/resolute 1:25.2.3-1build1 all
+  Hungarian dictionary for hunspell
+
+[32mhunspell-id[0m/resolute 1:25.2.3-1build1 all
+  Indonesian dictionary for hunspell
+
+[32mhunspell-is[0m/resolute 1:25.2.3-1build1 all
+  Icelandic dictionary for hunspell
+
+[32mhunspell-it[0m/resolute 1:25.2.3-1build1 all
+  Italian dictionary for hunspell
+
+[32mhunspell-kmr[0m/resolute 1:25.2.3-1build1 all
+  Kurmanji dictionary for hunspell
+
+[32mhunspell-ko[0m/resolute 0.7.94-2build1 all
+  Korean dictionary for hunspell
+
+[32mhunspell-lo[0m/resolute 1:25.2.3-1build1 all
+  Laotian dictionary for hunspell
+
+[32mhunspell-lt[0m/resolute 1:25.2.3-1build1 all
+  Lithuanian dictionary for hunspell
+
+[32mhunspell-mn[0m/resolute 1:25.2.3-1build1 all
+  Mongolian dictionary for hunspell
+
+[32mhunspell-ne[0m/resolute 1:25.2.3-1build1 all
+  Nepalese dictionary for hunspell
+
+[32mhunspell-no[0m/resolute 1:25.2.3-1build1 all
+  Norwegian dictionary for hunspell
+
+[32mhunspell-oc[0m/resolute 1:25.2.3-1build1 all
+  Occitan dictionary for hunspell
+
+[32mhunspell-pl[0m/resolute 1:25.2.3-1build1 all
+  Polish dictionary for hunspell
+
+[32mhunspell-pt-br[0m/resolute 1:25.2.3-1build1 all
+  Brazilian Portuguese dictionary for hunspell
+
+[32mhunspell-pt-pt[0m/resolute 1:25.2.3-1build1 all
+  Portuguese dictionary for hunspell
+
+[32mhunspell-ro[0m/resolute 1:25.2.3-1build1 all
+  Romanian dictionary for hunspell
+
+[32mhunspell-ru[0m/resolute 1:25.2.3-1build1 all
+  Russian dictionary for hunspell
+
+[32mhunspell-si[0m/resolute 1:25.2.3-1build1 all
+  Sinhala dictionary for hunspell
+
+[32mhunspell-sk[0m/resolute 1:25.2.3-1build1 all
+  Slovak dictionary for hunspell
+
+[32mhunspell-sl[0m/resolute 1:25.2.3-1build1 all
+  Slovene dictionary for hunspell
+
+[32mhunspell-sr[0m/resolute 1:25.2.3-1build1 all
+  Serbian dictionary for hunspell
+
+[32mhunspell-sv[0m/resolute 1:25.2.3-1build1 all
+  Swedish dictionary for hunspell
+
+[32mhunspell-sw[0m/resolute 1:25.2.3-1build1 all
+  Swahili dictionary for hunspell
+
+[32mhunspell-te[0m/resolute 1:25.2.3-1build1 all
+  Telugu dictionary for hunspell
+
+[32mhunspell-th[0m/resolute 1:25.2.3-1build1 all
+  Thai dictionary for hunspell
+
+[32mhunspell-tools[0m/resolute 1.7.2+really1.7.2-11 amd64
+  tools for hunspell
+
+[32mhunspell-tr[0m/resolute 1:25.2.3-1build1 all
+  Turkish dictionary for hunspell
+
+[32mhunspell-uk[0m/resolute 1:25.2.3-1build1 all
+  Ukrainian dictionary for hunspell
+
+[32mhunspell-vi[0m/resolute 1:25.2.3-1build1 all
+  Vietnamese dictionary for hunspell
+
+[32mhxtools[0m/resolute 20251011-1 amd64
+  Collection of tools and scripts
+
+[32micecream[0m/resolute 1.3-6build1 all
+  lightweight stream download utility
+
+[32miraf-st4gem[0m/resolute 1.2.1-1 amd64
+  Selected tools from the Space Telescope Science Data Analysis System
+
+[32mirpas[0m/resolute 0.10-10build1 amd64
+  Internetwork Routing Protocol Attack Suite
+
+[32mirssi-scripts[0m/resolute 20231031build1 all
+  collection of scripts for irssi
+
+[32miselect[0m/resolute 1.4.2-1build1 amd64
+  ncurses-based interactive line selection tool
+
+[32misync[0m/resolute 1.5.1-1ubuntu2 amd64
+  IMAP and MailDir mailbox synchronizer
+
+[32mjack-stdio[0m/resolute 1.6-1build1 amd64
+  program to pipe audio-data from and to JACK
+
+[32mjc[0m/resolute 1.25.5-1 all
+  JSON CLI output utility
+
+[32mjello[0m/resolute 1.6.1-1 all
+  Filter for JSON and JSON Lines data with Python syntax
+
+[32mjoe[0m/resolute 4.6-2build1 amd64
+  user friendly full screen text editor
+
+[32mjunit2html[0m/resolute 31.0.5-1 all
+  Convert JUnit XML reports to HTML
+
+[32mjupp[0m/resolute 3.1.41-2build1 amd64
+  user friendly full screen text editor
+
+[32mkind[0m/resolute 0.30.0-1 amd64
+  Kubernetes IN Docker - local clusters for testing Kubernetes (program)
+
+[32mless[0m/resolute,now 668-1build1 amd64 [installed,automatic]
+  pager program similar to more
+
+[32mlibapertium-lex-tools1[0m/resolute 0.5.0-1build3 amd64
+  Shared library for Apertium lexical selection module
+
+[32mlibapksig-java[0m/resolute 35.0.2-1 all
+  library to sign and verify Android APKs
+
+[32mlibassimp-dev[0m/resolute 6.0.4+ds-1build1 amd64
+  3D model import library (development)
+
+[32mlibassimp-doc[0m/resolute 6.0.4+ds-1build1 all
+  3D model import library (documentation)
+
+[32mlibassimp6[0m/resolute 6.0.4+ds-1build1 amd64
+  3D model import library
+
+[32mlibasync-interrupt-perl[0m/resolute 1.26-1build7 amd64
+  module to allow C/XS libraries to interrupt perl
+
+[32mlibbobcat-dev[0m/resolute 6.11.00-1 amd64
+  headers and documentation for the Bobcat library
+
+[32mlibbobcat6[0m/resolute 6.11.00-1 amd64
+  run-time (shared) Bobcat library
+
+[32mlibboilerpipe-java[0m/resolute 1.2.0-2build1 all
+  Boilerplate removal and fulltext extraction from HTML pages
+
+[32mlibcatmandu-fix-cmd-perl[0m/resolute 0.0201-2 all
+  Catmandu module that pipes data to be 'fixed' through an external process
+
+[32mlibcext-dev[0m/resolute 7.3.2+ds-1build4 amd64
+  Commonly used utility functions for C programs (development files)
+
+[32mlibcext-doc[0m/resolute 7.3.2+ds-1build4 all
+  API documentation for ESO's C utility library libcext
+
+[32mlibcext0[0m/resolute 7.3.2+ds-1build4 amd64
+  Commonly used utility functions for C programs
+
+[32mlibchild-perl[0m/resolute 0.013-3 all
+  Object Oriented simple interface to fork()
+
+[32mlibcom-hypirion-io-clojure[0m/resolute 0.3.1-5build1 all
+  I/O redirection, signal handling, and console utilities
+
+[32mlibconfig-crontab-perl[0m/resolute 1.45-3 all
+  module to read/write Vixie-compatible crontab(5) files
+
+[32mlibcpl-dev[0m/resolute 7.3.2+ds-1build4 amd64
+  ESO library for automated astronomical data-reduction
+
+[32mlibcpl-doc[0m/resolute 7.3.2+ds-1build4 all
+  API documentation for the Common Pipeline Library
+
+[32mlibcplcore26[0m/resolute 7.3.2+ds-1build4 amd64
+  Fundamental CPL data types and functions
+
+[32mlibcpldfs26[0m/resolute 7.3.2+ds-1build4 amd64
+  CPL functions for Data Flow System compatibility
+
+[32mlibcpldrs26[0m/resolute 7.3.2+ds-1build4 amd64
+  CPL higher level data processing algorithms
+
+[32mlibcplui26[0m/resolute 7.3.2+ds-1build4 amd64
+  CPL framework interface library
+
+[32mlibcrypto++-dev[0m/resolute 8.9.0-2build1 amd64
+  General purpose cryptographic library - C++ development
+
+[32mlibcrypto++-doc[0m/resolute 8.9.0-2build1 all
+  General purpose cryptographic library - documentation
+
+[32mlibcrypto++-utils[0m/resolute 8.9.0-2build1 amd64
+  General purpose cryptographic library - utilities and data files
+
+[32mlibczmq-dev[0m/resolute 4.2.1-3build1 amd64
+  High-level C binding for ZeroMQ (development files)
+
+[32mlibczmq4[0m/resolute 4.2.1-3build1 amd64
+  High-level C binding for ZeroMQ
+
+[32mlibdaemon-dev[0m/resolute 0.14-7.1ubuntu5 amd64
+  lightweight C library for daemons - development files
+
+[32mlibdaemon-doc[0m/resolute 0.14-7.1ubuntu5 all
+  lightweight C library for daemons - documentation
+
+[32mlibdaemon0[0m/resolute 0.14-7.1ubuntu5 amd64
+  lightweight C library for daemons - runtime library
+
+[32mlibdar-dev[0m/resolute 2.8.3-1build1 amd64
+  Disk ARchive: Development files for shared library
+
+[32mlibdar64-7000[0m/resolute 2.8.3-1build1 amd64
+  Disk ARchive: Shared library
+
+[32mlibdevel-autoflush-perl[0m/resolute 0.06-3 all
+  module for setting autoflush from the command line
+
+[32mlibdsfmt-11213-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-11213 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-1279-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-1279 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-132049-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-132049 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-19937-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-19937 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-216091-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-216091 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-2203-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-2203 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-4253-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-4253 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-44497-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-44497 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-521-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-521 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-86243-1[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT-86243 pseudorandom number generator (shared library)
+
+[32mlibdsfmt-dev[0m/resolute 2.2.3+dfsg-6build1 amd64
+  dSFMT pseudorandom number generator (development files)
+
+[32mlibevas1[0m/resolute 1.28.1-1.1build2 amd64
+  EFL advanced canvas library
+
+[32mlibevas1-engines-drm[0m/resolute 1.28.1-1.1build2 amd64
+  Evas module providing the DRM engine
+
+[32mlibevas1-engines-fb[0m/resolute 1.28.1-1.1build2 amd64
+  Evas module providing the Framebuffer engine
+
+[32mlibevas1-engines-wayland[0m/resolute 1.28.1-1.1build2 amd64
+  Evas module providing the Wayland engine
+
+[32mlibevas1-engines-x[0m/resolute 1.28.1-1.1build2 amd64
+  Evas module providing the X11 engines
+
+[32mlibexecs-dev[0m/resolute 1.4-2build2 amd64
+  C library for commands execution - development files
+
+[32mlibexecs1[0m/resolute 1.4-2build2 amd64
+  C library for commands execution
+
+[32mlibfilter-perl[0m/resolute 1.65-1 amd64
+  Perl source filters
+
+[32mlibgandiva2300[0m/resolute 23.0.1-9 amd64
+  Runtime expression compiler for Apache Arrow records
+
+[32mlibgenome-perl[0m/resolute 0.06-7 all
+  pipelines, tools, and data management for genomics
+
+[32mlibghc-hedis-dev[0m/resolute 0.15.2-3 amd64
+  client library for the Redis datastore
+
+[32mlibghc-hedis-doc[0m/resolute 0.15.2-3 all
+  client library for the Redis datastore; documentation
+
+[32mlibghc-hedis-prof[0m/resolute 0.15.2-3 amd64
+  client library for the Redis datastore; profiling libraries
+
+[32mlibghc-http-common-dev[0m/resolute 0.8.3.4-4 amd64
+  common types for HTTP clients and servers
+
+[32mlibghc-http-common-doc[0m/resolute 0.8.3.4-4 all
+  common types for HTTP clients and servers; documentation
+
+[32mlibghc-http-common-prof[0m/resolute 0.8.3.4-4 amd64
+  common types for HTTP clients and servers; profiling libraries
+
+[32mlibghc-pipes-attoparsec-dev[0m/resolute 0.6.0-3 amd64
+  Attoparsec-Pipes integration
+
+[32mlibghc-pipes-attoparsec-doc[0m/resolute 0.6.0-3 all
+  Attoparsec-Pipes integration; documentation
+
+[32mlibghc-pipes-attoparsec-prof[0m/resolute 0.6.0-3 amd64
+  Attoparsec-Pipes integration; profiling libraries
+
+[32mlibghc-pipes-bytestring-dev[0m/resolute 2.1.7-4 amd64
+  ByteString support for pipes
+
+[32mlibghc-pipes-bytestring-doc[0m/resolute 2.1.7-4 all
+  ByteString support for pipes; documentation
+
+[32mlibghc-pipes-bytestring-prof[0m/resolute 2.1.7-4 amd64
+  ByteString support for pipes; profiling libraries
+
+[32mlibghc-pipes-dev[0m/resolute 4.3.16-4 amd64
+  compositional pipelines
+
+[32mlibghc-pipes-doc[0m/resolute 4.3.16-4 all
+  compositional pipelines; documentation
+
+[32mlibghc-pipes-group-dev[0m/resolute 1.0.12-6 amd64
+  group streams into substreams
+
+[32mlibghc-pipes-group-doc[0m/resolute 1.0.12-6 all
+  group streams into substreams; documentation
+
+[32mlibghc-pipes-group-prof[0m/resolute 1.0.12-6 amd64
+  group streams into substreams; profiling libraries
+
+[32mlibghc-pipes-parse-dev[0m/resolute 3.0.9-4 amd64
+  parsing infrastructure for the pipes ecosystem
+
+[32mlibghc-pipes-parse-doc[0m/resolute 3.0.9-4 all
+  parsing infrastructure for the pipes ecosystem; documentation
+
+[32mlibghc-pipes-parse-prof[0m/resolute 3.0.9-4 amd64
+  parsing infrastructure for the pipes ecosystem; profiling libraries
+
+[32mlibghc-pipes-prof[0m/resolute 4.3.16-4 amd64
+  compositional pipelines; profiling libraries
+
+[32mlibghc-pipes-safe-dev[0m/resolute 2.3.5-3 amd64
+  safety for the pipes ecosystem
+
+[32mlibghc-pipes-safe-doc[0m/resolute 2.3.5-3 all
+  safety for the pipes ecosystem; documentation
+
+[32mlibghc-pipes-safe-prof[0m/resolute 2.3.5-3 amd64
+  safety for the pipes ecosystem; profiling libraries
+
+[32mlibghc-streaming-commons-dev[0m/resolute 0.2.3.1-1 amd64
+  common lower-level functions for various streaming data libraries
+
+[32mlibghc-streaming-commons-doc[0m/resolute 0.2.3.1-1 all
+  common lower-level functions for various streaming data libraries; documentation
+
+[32mlibghc-streaming-commons-prof[0m/resolute 0.2.3.1-1 amd64
+  common lower-level functions for various streaming data libraries; profiling libraries
+
+[32mlibghc-system-posix-redirect-dev[0m/resolute 1.1.0.1-6 amd64
+  toy module to temporarily redirect a program's stdout
+
+[32mlibghc-system-posix-redirect-doc[0m/resolute 1.1.0.1-6 all
+  toy module to temporarily redirect a program's stdout; documentation
+
+[32mlibghc-system-posix-redirect-prof[0m/resolute 1.1.0.1-6 amd64
+  toy module to temporarily redirect a program's stdout; profiling libraries
+
+[32mlibglobus-xio-pipe-driver[0m/resolute 4.1-4build2 amd64
+  Grid Community Toolkit - Globus Pipe Driver
+
+[32mlibglobus-xio-pipe-driver-dev[0m/resolute 4.1-4build2 amd64
+  Grid Community Toolkit - Globus Pipe Driver Development Files
+
+[32mlibglobus-xio-popen-driver[0m/resolute 4.1-4build2 amd64
+  Grid Community Toolkit - Globus XIO Pipe Open Driver
+
+[32mlibglobus-xio-popen-driver-dev[0m/resolute 4.1-4build2 amd64
+  Grid Community Toolkit - Globus XIO Pipe Open Driver Development Files
+
+[32mlibglobus-xio-rate-driver[0m/resolute 2.1-4build2 amd64
+  Grid Community Toolkit - Globus XIO Rate Limiting Driver
+
+[32mlibglobus-xio-udt-driver[0m/resolute 2.3-3build2 amd64
+  Grid Community Toolkit - Globus XIO UDT Driver
+
+[32mlibgnuplot-iostream-dev[0m/resolute 0~20251226.git05843bd3-3 all
+  C++ programming interface for gnuplot. Headers
+
+[32mlibgnuplot-iostream-doc[0m/resolute 0~20251226.git05843bd3-3 all
+  C++ programming interface for gnuplot. Docs and examples
+
+[32mlibgnuplot-ocaml-dev[0m/resolute 0.8.3-6build5 amd64
+  OCaml interface to the gnuplot utility
+
+[32mlibgoby-io-java[0m/resolute 3.3.1+dfsg2-12 all
+  IO API for goby
+
+[32mlibgraphics-gnuplotif-perl[0m/resolute 1.8-3 all
+  dynamic Perl interface to gnuplot
+
+[32mlibhalide21-1[0m/resolute 21.0.0-4build1 amd64
+  fast, portable computation on images and tensors
+
+[32mlibhipi-perl[0m/resolute 0.94-1 amd64
+  Raspberry Pi GPIO Perl Modules
+
+[32mlibhunspell-1.7-0[0m/resolute 1.7.2+really1.7.2-11 amd64
+  spell checker and morphological analyzer (shared library)
+
+[32mlibhunspell-dev[0m/resolute 1.7.2+really1.7.2-11 amd64
+  spell checker and morphological analyzer (development)
+
+[32mlibhunspell-private-dev[0m/resolute 1.7.2+really1.7.2-11 all
+  spell checker and morphological analyzer (private headers)
+
+[32mlibijs-0.35[0m/resolute 0.35-16 amd64
+  IJS raster image transport protocol: shared library
+
+[32mlibijs-dev[0m/resolute 0.35-16 amd64
+  IJS raster image transport protocol: development files
+
+[32mlibijs-doc[0m/resolute 0.35-16 all
+  IJS raster image transport protocol: documentation
+
+[32mlibimgui-dev[0m/resolute 1.92.2b+ds-1build1 amd64
+  Bloat-free Immediate Mode Graphical User interface for C++
+
+[32mlibio-aio-perl[0m/resolute 4.81-1build3 amd64
+  asynchronous IO module for Perl
+
+[32mlibio-pager-perl[0m/resolute 2.10-1 all
+  module to select a pager and pipe text to it
+
+[32mlibio-pipely-perl[0m/resolute 0.006-1 all
+  portable way to create pipe() or pipe-like handles
+
+[32mlibipc-filter-perl[0m/resolute 0.005-2 all
+  module to filter data through an external process
+
+[32mlibipc-run-perl[0m/resolute 20250809.0-1build1 all
+  Perl module for running processes
+
+[32mlibkpim6gapipeople6[0m/resolute 25.12.3-0ubuntu1 amd64
+  library to integrate with Google People service API
+
+[32mlibkpipewire-data[0m/resolute 6.6.4-0ubuntu1 all
+  KDE's Pipewire libraries - data files
+
+[32mlibkpipewire-dev[0m/resolute 6.6.4-0ubuntu1 amd64
+  KDE's Pipewire libraries - development files
+
+[32mlibkpipewire6[0m/resolute 6.6.4-0ubuntu1 amd64
+  KDE's Pipewire libraries - libkpipewire6 library
+
+[32mlibkpipewiredmabuf6[0m/resolute 6.6.4-0ubuntu1 amd64
+  KDE's Pipewire libraries - libkpipewiredmabuf6
+
+[32mlibkpipewirerecord6[0m/resolute 6.6.4-0ubuntu1 amd64
+  KDE's Pipewire libraries - libkpipewirerecord6
+
+[32mliblatex-table-perl[0m/resolute 1.0.6-4build1 all
+  Perl extension for the automatic generation of LaTeX tables
+
+[32mliblessen-java[0m/resolute 1.0-2 all
+  lightweight CSS+LESS parser written in Java
+
+[32mlibmatthew-io-java[0m/resolute 0.8.1-4build1 all
+  Extra IO library for Java
+
+[32mlibmeshoptimizer-dev[0m/resolute 0.22+dfsg-1build1 amd64
+  Mesh optimizing library for 3D object rendering - development headers
+
+[32mlibmeshoptimizer2d[0m/resolute 0.22+dfsg-1build1 amd64
+  Mesh optimizing library for 3D object rendering
+
+[32mlibmfsio-dev[0m/resolute 4.58.1-1 amd64
+  MooseFS IO library - development files
+
+[32mlibmfsio1t64[0m/resolute 4.58.1-1 amd64
+  MooseFS IO library
+
+[32mlibmutter-18-0[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  window manager library from the Mutter window manager
+
+[32mlibmutter-18-dev[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  Development files for the Mutter window manager
+
+[32mlibnanomsg-dev[0m/resolute 1.1.5+dfsg-1.2 amd64
+  nanomsg development files
+
+[32mlibnanomsg5[0m/resolute 1.1.5+dfsg-1.2 amd64
+  high-performance implementation of scalability libraries
+
+[32mlibnauty-2.9.3[0m/resolute 2.9.3-3 amd64
+  library for graph automorphisms -- library package
+
+[32mlibnauty-dev[0m/resolute 2.9.3-3 amd64
+  library for graph automorphisms -- development package
+
+[32mlibnet-async-http-perl[0m/resolute 0.50-1 all
+  module to use HTTP with IO::Async
+
+[32mlibnetty-reactive-streams-java[0m/resolute 2.0.8-1build1 all
+  Netty Reactive Streams
+
+[32mlibnproc-ocaml-dev[0m/resolute 0.5.1-5build11 amd64
+  process pool implementation for OCaml
+
+[32mlibnvtt-bin[0m/resolute 2.1.2~dfsg-4 amd64
+  NVIDIA Texture Tools (Binaries)
+
+[32mlibnvtt-dev[0m/resolute 2.1.2~dfsg-4 amd64
+  NVIDIA Texture Tools (Header)
+
+[32mlibnvtt2.1[0m/resolute 2.1.2~dfsg-4 amd64
+  NVIDIA Texture Tools
+
+[32mlibopenjp2-tools[0m/resolute-updates,resolute-security 2.5.4-1ubuntu0.1 amd64
+  command-line tools using the JPEG 2000 library
+
+[32mlibopenjpip-dec-server[0m/resolute-updates,resolute-security 2.5.4-1ubuntu0.1 amd64
+  tool to allow caching of JPEG 2000 files using JPIP protocol
+
+[32mlibopenjpip-viewer[0m/resolute-updates,resolute-security 2.5.4-1ubuntu0.1 all
+  JPEG 2000 java based viewer for advanced remote JPIP access
+
+[32mlibopenjpip7[0m/resolute-updates,resolute-security 2.5.4-1ubuntu0.1 amd64
+  JPEG 2000 Interactive Protocol
+
+[32mlibperlude-perl[0m/resolute 0.61-2 all
+  shell and powershell pipes, haskell keywords mixed with the awesomeness of perl
+
+[32mlibpgp-sign-perl[0m/resolute 1.04-1 all
+  Perl module to create detached PGP signatures
+
+[32mlibpipeline-dev[0m/resolute 1.5.8-2 amd64
+  Unix process pipeline manipulation library (development files)
+
+[32mlibpipeline1[0m/resolute,now 1.5.8-2 amd64 [installed,automatic]
+  Unix process pipeline manipulation library
+
+[32mlibpipewire-0.3-0t64[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server
+
+[32mlibpipewire-0.3-common[0m/resolute 1.6.2-1ubuntu1 all
+  libraries for the PipeWire multimedia server - common files
+
+[32mlibpipewire-0.3-dev[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - development
+
+[32mlibpipewire-0.3-modules[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - modules
+
+[32mlibpipewire-0.3-modules-extra[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - extra modules
+
+[32mlibpipewire-0.3-modules-x11[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - X11 modules
+
+[32mlibpipewire-0.3-modules-xrdp[0m/resolute 0.2-2build1 amd64
+  libraries for the PipeWire multimedia server - xrdp modules
+
+[32mlibpoe-component-dbiagent-perl[0m/resolute 0.26-3.1 all
+  POE Component for running asynchronous DBI calls
+
+[32mlibpoe-component-pool-thread-perl[0m/resolute 0.015-2build1 all
+  POE Managed Boss/Worker thread pool
+
+[32mlibpstreams-dev[0m/resolute 1.0.4-2 all
+  C++ iostream interface to POSIX process I/O
+
+[32mlibqt6shadertools6[0m/resolute 6.10.2-1 amd64
+  Qt 6 shader tools module
+
+[32mlibredberry-pipe-java[0m/resolute 1.0.0~alpha0-4 all
+  implementation of concurrent pipelines
+
+[32mlibrrdp-perl[0m/resolute 1.9.0-2build1 all
+  time-series data storage and display system (Perl interface, piped)
+
+[32mlibrte-pipeline26[0m/resolute 25.11-2 amd64
+  Data Plane Development Kit (librte-pipeline runtime library)
+
+[32mlibrust-aperture-dev[0m/resolute 0.11.0-2 amd64
+  GTK Widget for cameras using gstreamer and pipewire - Rust source code
+
+[32mlibrust-imagepipe-dev[0m/resolute 0.5.0-3 amd64
+  Image processing pipeline - Rust source code
+
+[32mlibrust-os-pipe-dev[0m/resolute 1.2.2-1 amd64
+  Cross-platform library for opening OS pipes - Rust source code
+
+[32mlibrust-pager-dev[0m/resolute 0.16.1-2 amd64
+  Helps pipe your output through an external pager - Rust source code
+
+[32mlibrust-pipeline-dev[0m/resolute 0.5.0-1build1 amd64
+  Macro collection to pipe |> your functions calls - Rust source code
+
+[32mlibrust-pipewire-dev[0m/resolute 0.9.2-2 amd64
+  Rust bindings for PipeWire - Rust source code
+
+[32mlibrust-pipewire-sys-dev[0m/resolute 0.9.2-1 amd64
+  Rust FFI bindings for PipeWire - Rust source code
+
+[32mlibrust-subprocess-dev[0m/resolute 0.2.9-2 amd64
+  execution of child processes and pipelines - Rust source code
+
+[32mlibrust-tokio-pipe-dev[0m/resolute 0.2.12-1 amd64
+  Asynchronous pipe(2) library using tokio - Rust source code
+
+[32mlibrust-transformation-pipeline-dev[0m/resolute 0.1.0-1build1 amd64
+  Middleware-esque API for transforming data - Rust source code
+
+[32mlibrust-tree-sitter-md-dev[0m/resolute 0.5.0-3 amd64
+  Markdown grammar for the tree-sitter parser - Rust source code
+
+[32mlibsnpsift-java[0m/resolute 5.2.e+dfsg-2build1 all
+  tool to annotate and manipulate genome variants - lib
+
+[32mlibsnpsift-java-doc[0m/resolute 5.2.e+dfsg-2build1 all
+  Documentation for SnpSift
+
+[32mlibspa-0.2-bluetooth[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - bluetooth plugins
+
+[32mlibspa-0.2-dev[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server Simple Plugin API - development
+
+[32mlibspa-0.2-jack[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - JACK client
+
+[32mlibspa-0.2-libcamera[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server - libcamera plugin
+
+[32mlibspa-0.2-modules[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server Simple Plugin API - modules
+
+[32mlibspa-0.2-modules-extra[0m/resolute 1.6.2-1ubuntu1 amd64
+  libraries for the PipeWire multimedia server Simple Plugin API - extra modules
+
+[32mlibspirv-cross-c-shared-dev[0m/resolute 2021.01.15+1.4.335.0-1 amd64
+  Convert SPIR-V to other shader languages (development files)
+
+[32mlibspirv-cross-c-shared0[0m/resolute 2021.01.15+1.4.335.0-1 amd64
+  Convert SPIR-V to other shader languages (shared library)
+
+[32mlibspirv-reflect-dev[0m/resolute 1.4.335.0-0ubuntu1 amd64
+  Convert SPIR-V to other shader languages
+
+[32mlibstatistics-r-perl[0m/resolute 0.34-2 all
+  Control the R interpreter with perl
+
+[32mlibtcnative-1[0m/resolute 1.3.1-1build1 amd64
+  Tomcat native library using the Apache Portable Runtime
+
+[32mlibtensorpipe-cuda-0[0m/resolute 0.0~git20220513.bb1473a-6 amd64
+  tensor-aware point-to-point communication primitive for machine learning
+
+[32mlibtensorpipe-cuda-dev[0m/resolute 0.0~git20220513.bb1473a-6 amd64
+  tensor-aware point-to-point communication primitive for machine learning
+
+[32mlibtensorpipe-dev[0m/resolute 0.0~git20250815.af0118d-1build1 amd64
+  tensor-aware P2P comm primitive for machine learning (development files)
+
+[32mlibtensorpipe0[0m/resolute 0.0~git20250815.af0118d-1build1 amd64
+  tensor-aware P2P comm primitive for machine learning (shared library)
+
+[32mlibtest-mock-cmd-perl[0m/resolute 0.7-2 all
+  module to mock system(), exec(), and qx() for testing
+
+[32mlibtigris-clojure[0m/resolute 0.1.2-2build2 all
+  stream-based JSON escaping for Clojure
+
+[32mlibuv1-dev[0m/resolute 1.51.0-2ubuntu1 amd64
+  asynchronous event notification library - development files
+
+[32mlibuv1-doc[0m/resolute 1.51.0-2ubuntu1 all
+  asynchronous event notification library - documentation
+
+[32mlibuv1t64[0m/resolute 1.51.0-2ubuntu1 amd64
+  asynchronous event notification library - runtime library
+
+[32mlibvanessa-socket-pipe[0m/resolute 0.0.13-2 amd64
+  User space TCP/IP pipe
+
+[32mlibvanessa-socket2t64[0m/resolute 0.0.13-2 amd64
+  Library to simplify TCP socket operations
+
+[32mlibwbclient-dev[0m/resolute-updates,resolute-security 2:4.23.6+dfsg-1ubuntu2.1 amd64
+  Samba winbind client library - development files
+
+[32mlibwbclient0[0m/resolute-updates,resolute-security 2:4.23.6+dfsg-1ubuntu2.1 amd64
+  Samba winbind client library
+
+[32mlibwireplumber-0.5-0[0m/resolute 0.5.13-1ubuntu1 amd64
+  Shared libraries for WirePlumber
+
+[32mlibwireplumber-0.5-dev[0m/resolute 0.5.13-1ubuntu1 amd64
+  Development files for WirePlumber
+
+[32mlibxml-simple-perl[0m/resolute 2.25-2 all
+  Perl module for reading and writing XML
+
+[32mlibxnnpack-dev[0m/resolute 0.0~git20241108.4ea82e5-2build1 amd64
+  High-efficiency floating-point neural network inference operators (dev)
+
+[32mlibxnnpack0.20241108[0m/resolute 0.0~git20241108.4ea82e5-2build1 amd64
+  High-efficiency floating-point neural network inference operators (libs)
+
+[32mlibxvmc-dev[0m/resolute 2:1.0.12-2build4 amd64
+  X11 Video extension library (development headers)
+
+[32mlibxvmc1[0m/resolute 2:1.0.12-2build4 amd64
+  X11 Video extension library
+
+[32mlittler[0m/resolute 0.3.22-1 all
+  GNU R scripting and command-line front-end -- transition package
+
+[32mlmbench[0m/resolute 3.0-a9+debian.1-10 amd64
+  Utilities to benchmark UNIX systems
+
+[32mlogtools[0m/resolute 0.13g amd64
+  Russell's misc tools for managing log files
+
+[32mlua-redis[0m/resolute 2.0.5~git20141117.880dda9-8 all
+  Redis client database library for the Lua language
+
+[32mmailagent[0m/resolute 1:3.1-106-1.2 amd64
+  automatic mail-processing tool and filter
+
+[32mmaildrop[0m/resolute 3.2.1-2 amd64
+  mail delivery agent with filtering abilities (set-GID=mail)
+
+[32mmailtextbody[0m/resolute 0.1.5-1build1 amd64
+  tool to return the body of an email message
+
+[32mmailutils-pop3d[0m/resolute 1:3.20-3build1 amd64
+  GNU mailutils-based POP3 Daemon
+
+[32mmathpiper[0m/resolute 0.81f+svn4469+dfsg3-4build1 all
+  Java Computer Algebra System
+
+[32mmegan-ce[0m/resolute 6.21.1+dfsg-4build1 all
+  interactive tool to explore and analyse microbiome sequencing data
+
+[32mmeshroom[0m/resolute 2025.1.1-1 all
+  open-source, node-based visual programming framework
+
+[32mmiller[0m/resolute 6.16.0-1 amd64
+  name-indexed data processing tool
+
+[32mminetest-mod-pipeworks[0m/resolute 20210414.1-3build1 all
+  Pipes and tubes for Minetest
+
+[32mmoor[0m/resolute 2.10.3-1 amd64
+  Pager designed to just do the right thing without any configuration
+
+[32mmoosefs-chunkserver[0m/resolute 4.58.1-1 amd64
+  MooseFS - data server
+
+[32mmoosefs-cli[0m/resolute 4.58.1-1 all
+  MooseFS CLI utility
+
+[32mmoosefs-client[0m/resolute 4.58.1-1 amd64
+  MooseFS - client tools and mount utility
+
+[32mmoosefs-common[0m/resolute 4.58.1-1 all
+  MooseFS - common files
+
+[32mmoosefs-gui[0m/resolute 4.58.1-1 amd64
+  MooseFS - web-based GUI
+
+[32mmoosefs-master[0m/resolute 4.58.1-1 amd64
+  MooseFS - master server
+
+[32mmoosefs-metalogger[0m/resolute 4.58.1-1 amd64
+  MooseFS - metalogger server
+
+[32mmoosefs-netdump[0m/resolute 4.58.1-1 amd64
+  MooseFS network packet dump utility
+
+[32mmoreutils[0m/resolute 0.69-1build1 amd64
+  additional Unix utilities
+
+[32mmpop[0m/resolute 1.4.21-1build1 amd64
+  POP3 mail retriever
+
+[32mmuchsync[0m/resolute 7-1build4 amd64
+  synchronize maildirs and notmuch databases
+
+[32mmultimon-ng[0m/resolute 1.3.1+dfsg-1.1build1 amd64
+  digital radio transmission decoder
+
+[32mmutter[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  Example window manager using GNOME's window manager library
+
+[32mmutter-18-tests[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  Tests for GNOME's window manager library
+
+[32mmutter-common[0m/resolute-updates 50.1-0ubuntu2.1 all
+  shared files for the Mutter window manager
+
+[32mmutter-common-bin[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  shared programs for the Mutter window manager
+
+[32mmutter-dev-bin[0m/resolute-updates 50.1-0ubuntu2.1 amd64
+  Development programs for the Mutter window manager
+
+[32mnanomsg-utils[0m/resolute 1.1.5+dfsg-1.2 amd64
+  nanomsg utilities
+
+[32mnanostat[0m/resolute 1.4.0-4 all
+  statistics on long biological sequences
+
+[32mnauty[0m/resolute 2.9.3-3 amd64
+  library for graph automorphisms -- interface and tools
+
+[32mnauty-doc[0m/resolute 2.9.3-3 all
+  library for graph automorphisms -- user guide
+
+[32mnbsdgames[0m/resolute 5-8build1 amd64
+  text based mini games for your terminal
+
+[32mnetpipe-lam[0m/resolute 3.7.2-9.1build2 amd64
+  Network performance tool using LAM MPI
+
+[32mnetpipe-mpich2[0m/resolute 3.7.2-9.1build2 amd64
+  Network performance tool using MPICH2 MPI
+
+[32mnetpipe-openmpi[0m/resolute 3.7.2-9.1build2 amd64
+  Network performance tool using OpenMPI
+
+[32mnetpipe-tcp[0m/resolute 3.7.2-9.1build2 amd64
+  Network performance tool using the TCP protocol
+
+[32mnetpipes[0m/resolute 4.2-8.1build1 amd64
+  manipulate BSD TCP/IP stream sockets
+
+[32mnetworking-bagpipe-common[0m/resolute 24.0.0-0ubuntu1 all
+  Driver and agent code to use BagPipe implementation (common)
+
+[32mnip2[0m/resolute 8.9.1-2build1 amd64
+  spreadsheet-like graphical image manipulation tool
+
+[32mnncp[0m/resolute 8.12.1-2 amd64
+  Secure store-and-forward files, mail, and commands
+
+[32mnode-archy[0m/resolute 1.0.0-7 all
+  Pretty-print nested hierarchies module for Node.js
+
+[32mnode-callback-stream[0m/resolute 1.1.0-4 all
+  pipeable stream that calls your callback
+
+[32mnode-ci-info[0m/resolute 4.4.0+~cs8.2.0-3build3 all
+  Get details about the current Continuous Integration environment
+
+[32mnode-commoner[0m/resolute 0.15.2+~0.10.8-1 all
+  JavaScript transpiler to Node-compatible CommonJS
+
+[32mnode-errs[0m/resolute 0.3.2-3 all
+  Simple error creation and passing utilities
+
+[32mnode-exit[0m/resolute 0.1.2+~0.1.33-1 all
+  replacement for process.exit that ensures stdio is fully drained
+
+[32mnode-flagged-respawn[0m/resolute 1.0.1-6 all
+  tool for respawning node binaries when special flags are present
+
+[32mnode-getpass[0m/resolute 0.1.7-3 all
+  get a password from terminal
+
+[32mnode-gulp-clean-css[0m/resolute 4.3.0-2 all
+  gulp pipeline for minify CSS with clean-css
+
+[32mnode-gulp-plumber[0m/resolute 1.2.1-2 all
+  Prevent pipe breaking caused by errors from gulp plugins
+
+[32mnode-gulp-postcss[0m/resolute 10.0.0-1 all
+  gulp plugin to pipe CSS through several plugins, but parse CSS only once
+
+[32mnode-gulp-tap[0m/resolute 2.0.0-3 all
+  Easily tap into a gulp pipeline
+
+[32mnode-labeled-stream-splicer[0m/resolute 2.0.2+~2.0.5-1 all
+  streaming pipeline with a mutable configuration and labels
+
+[32mnode-log-driver[0m/resolute 1.2.7+git+20180219+bba1761737-8 all
+  simple logging framework in pure javascript
+
+[32mnode-minipass[0m/resolute 5.0.0+~cs13.3.24-1build1 all
+  Minimal implementation of a PassThrough for Node.js
+
+[32mnode-multipipe[0m/resolute 4.0.0-2 all
+  pipe streams with centralized error handling
+
+[32mnode-outpipe[0m/resolute 1.1.1-1 all
+  Write output to a file through shell commands
+
+[32mnode-pump[0m/resolute 3.0.4-1 all
+  small node module that pipes streams together
+
+[32mnode-pumpify[0m/resolute 2.0.1-2 all
+  combine streams into a single duplex stream by pump and duplexify
+
+[32mnode-ramda[0m/resolute 0.28.0+dfsg+~cs9.34.18-2 all
+  practical functional library for JavaScript programmers
+
+[32mnode-rollup-plugin-replace[0m/resolute 5.0.7+ds2-1 all
+  Rollup plugin to make string substitutions while bundling
+
+[32mnode-stream-array[0m/resolute 1.1.2+~1.1.4-1 all
+  Pipe an Array through Node.js streams
+
+[32mnode-stream-combiner2[0m/resolute 1.1.1-6 all
+  combine stream using stream3 Node.js API
+
+[32mnode-stream-consume[0m/resolute 0.1.1-2 all
+  consume a stream to ensure it keeps flowing
+
+[32mnode-stream-splicer[0m/resolute 2.0.1-4 all
+  streaming pipeline with a mutable configuration
+
+[32mnode-term-size[0m/resolute 1.2.0+dfsg-4 all
+  Reliably get the terminal window size
+
+[32mnode-unpipe[0m/resolute 1.0.0-4 all
+  Unpipe a stream from all destinations
+
+[32mnode-xdg-basedir[0m/resolute 5.1.0-2 all
+  Get XDG Base Directory paths
+
+[32mnutcracker[0m/resolute 0.5.0+dfsg-2build1 amd64
+  Fast, light-weight proxy for memcached and Redis
+
+[32mobitools[0m/resolute 3.0.1~b26+dfsg-5build1 amd64
+  programs to analyze NGS data in a DNA metabarcoding context
+
+[32mobs-pipewire-audio-capture[0m/resolute 1.2.0-1build1 amd64
+  Audio device and application capture for OBS Studio using PipeWire
+
+[32mobs-plugins[0m/resolute 32.1.0-0ubuntu3 amd64
+  recorder and streamer for live video content (plugins)
+
+[32modr-audioenc[0m/resolute 3.6.0-2build1 amd64
+  DAB and DAB+ encoder that integrates into the ODR-mmbTools
+
+[32mopenbox[0m/resolute 3.6.1-12ubuntu3 amd64
+  standards-compliant, fast, light-weight and extensible window manager
+
+[32mopenms[0m/resolute 2.6.0+cleaned1-6build1 all
+  package for LC/MS data management and analysis
+
+[32mopenms-common[0m/resolute 2.6.0+cleaned1-6build1 all
+  package for LC/MS data management and analysis - shared data
+
+[32mopenms-doc[0m/resolute 2.6.0+cleaned1-6build1 all
+  package for LC/MS data management and analysis - documentation
+
+[32moptimir[0m/resolute 1.2-2build1 all
+  Integrating genetic variations in miRNA alignment
+
+[32mpaleomix[0m/resolute 1.3.10-1 amd64
+  pipelines and tools for the processing of ancient and modern HTS data
+
+[32mpbjelly[0m/resolute 15.8.24+dfsg-8build1 all
+  genome assembly upgrading tool
+
+[32mpcaputils[0m/resolute 0.8-2build1 amd64
+  specialized libpcap utilities
+
+[32mpd-beatpipe[0m/resolute 0.1-11build2 amd64
+  realtime scheduler/event-delay/quantizer object for Pd
+
+[32mpdb-tools[0m/resolute 2.6.0-1 all
+  tools for manipulating and editing PDB files
+
+[32mpdns-backend-pipe[0m/resolute 5.0.2-1build1 amd64
+  pipe/coprocess backend for PowerDNS
+
+[32mpdns-backend-remote[0m/resolute 5.0.2-1build1 amd64
+  remote backend for PowerDNS
+
+[32mpfstmo[0m/resolute 2.2.0-10 amd64
+  set of tone mapping operators
+
+[32mphyx[0m/resolute 1.3.2+ds-1build1 amd64
+  UNIX-style phylogenetic analyses on trees and sequences
+
+[32mpick[0m/resolute 2.0.2-1.1build1 amd64
+  utility to choose one option from a set of choices
+
+[32mpicopore[0m/resolute 1.2.0-3build1 all
+  lossless compression of Nanopore files
+
+[32mpigx-rnaseq[0m/resolute 0.1.1-3 all
+  pipeline for checkpointed and distributed RNA-seq analyses
+
+[32mpip-check-reqs[0m/resolute 2.5.6-1 all
+  checker for missing and extra packages in Python requirements
+
+[32mpipebench[0m/resolute 0.40-8build1 amd64
+  measure the speed of stdin/stdout communication
+
+[32mpipectl[0m/resolute 0.5.1-1build1 amd64
+  simple named pipe management utility
+
+[32mpipemeter[0m/resolute 1.1.5-1.1build1 amd64
+  cli utility that shows the speed of data moving from input to output
+
+[32mpipemixer[0m/resolute 0.4.0-1 amd64
+  TUI for pipewire
+
+[32mpipenightdreams[0m/resolute 0.10.0-15build1 amd64
+  connect pipes to get the water flowing from inlet to outlet
+
+[32mpipenightdreams-data[0m/resolute 0.10.0-15build1 all
+  connect pipes to get the water flowing from inlet to outlet (data files)
+
+[32mpipenv[0m/resolute 2024.0.1+ds-4 all
+  Python package manager based on virtualenv and Pipfiles
+
+[32mpiper[0m/resolute 0.8-1build1 all
+  GTK application to configure gaming devices
+
+[32mpiperka-client[0m/resolute 0.2.2-1build4 amd64
+  Mobile oriented web comics reader client
+
+[32mpipes-sh[0m/resolute 1.3.0-2build1 all
+  Animated pipes terminal screensaver
+
+[32mpipewalker[0m/resolute 1.1-1build1 amd64
+  combination puzzle game
+
+[32mpipewire[0m/resolute 1.6.2-1ubuntu1 amd64
+  audio and video processing engine multimedia server
+
+[32mpipewire-alsa[0m/resolute 1.6.2-1ubuntu1 amd64
+  PipeWire ALSA plugin, for ALSA applications to output via PipeWire
+
+[32mpipewire-audio[0m/resolute 1.6.2-1ubuntu1 all
+  recommended set of PipeWire packages for a standard audio desktop use
+
+[32mpipewire-audio-client-libraries[0m/resolute 1.6.2-1ubuntu1 all
+  transitional package for pipewire-alsa and pipewire-jack
+
+[32mpipewire-bin[0m/resolute 1.6.2-1ubuntu1 amd64
+  PipeWire multimedia server - programs
+
+[32mpipewire-doc[0m/resolute 1.6.2-1ubuntu1 all
+  libraries for the PipeWire multimedia server - documentation
+
+[32mpipewire-jack[0m/resolute 1.6.2-1ubuntu1 amd64
+  PipeWire JACK plugin, for JACK applications to output via PipeWire
+
+[32mpipewire-libcamera[0m/resolute 1.6.2-1ubuntu1 all
+  transitional package for libspa-0.2-libcamera
+
+[32mpipewire-module-xrdp[0m/resolute 0.2-2build1 all
+  audio over xrdp for PipeWire based systems
+
+[32mpipewire-pulse[0m/resolute 1.6.2-1ubuntu1 amd64
+  PipeWire PulseAudio daemon
+
+[32mpipewire-system-services[0m/resolute 1.6.2-1ubuntu1 all
+  audio and video processing engine multimedia server (system services)
+
+[32mpipewire-tests[0m/resolute 1.6.2-1ubuntu1 amd64
+  PipeWire multimedia server - tests and examples
+
+[32mpipewire-v4l2[0m/resolute 1.6.2-1ubuntu1 amd64
+  PipeWire V4L2 plugin
+
+[32mpipexec[0m/resolute 2.6.2-1build1 amd64
+  create a directed graph of processes and pipes
+
+[32mpipsi[0m/resolute 0.9-1.1build1 all
+  pip script installer
+
+[32mpipx[0m/resolute 1.8.0-1 all
+  execute binaries from Python packages in isolated environments
+
+[32mpique[0m/resolute 1.1-1 all
+  software pipeline for performing genome wide association studies
+
+[32mpique-doc[0m/resolute 1.1-1 all
+  software pipeline for performing genome wide association studies (docs)
+
+[32mplasma-pipewire-settings[0m/resolute 1.2.1-0ubuntu1 all
+  Simple Plasma 6 widget to change Pipewire quantum and sample rate
+
+[32mplasmidid[0m/resolute 1.6.5+dfsg-2build1 amd64
+  mapping-based, assembly-assisted plasmid identification tool
+
+[32mplastimatch[0m/resolute 1.10.0+dfsg.1-1build2 amd64
+  medical image reconstruction and registration
+
+[32mpsignifit[0m/resolute 2.5.6-8build1 amd64
+  Fitting and testing hypotheses about psychometric functions
+
+[32mpublicfile[0m/resolute 0.52-14 amd64
+  http and ftp server by Daniel J Bernstein
+
+[32mpv[0m/resolute 1.10.3-1 amd64
+  Shell pipeline element to meter data passing through
+
+[32mpyomop[0m/resolute 4.3.0-1 all
+  OHSDI OMOP Common Data Model tools
+
+[32mpyp[0m/resolute 3.0.9-1 all
+  sed/awk-like tool with Python language
+
+[32mpyqt-builder-doc[0m/resolute 1.19.0+dfsg-1 all
+  PEP 517 compliant PyQt build system — documentation
+
+[32mpython-bioxtasraw-doc[0m/resolute 2.3.1-1build1 all
+  process small angle scattering data (documentation)
+
+[32mpython-django-pipeline-doc[0m/resolute 4.1.0-2build1 all
+  Documentation for Django Pipeline library
+
+[32mpython-flask-openapi3-doc[0m/resolute 4.3.1-1 all
+  Web API framework based on Flask (Documentation)
+
+[32mpython-fluids-doc[0m/resolute 1.1.0-1 all
+  Python fluid dynamics and engineering design library documentation
+
+[32mpython-gwcs-doc[0m/resolute 1.0.3-1 all
+  Tools for managing the WCS of astronomical data (documentation)
+
+[32mpython-joblib-doc[0m/resolute 1.5.2-1 all
+  tools to provide lightweight pipelining in Python -- docs
+
+[32mpython-networking-bagpipe-doc[0m/resolute 24.0.0-0ubuntu1 all
+  Driver and agent code to use BagPipe implementation (common documentaiton)
+
+[32mpython-nipype-doc[0m/resolute 1.10.0-1 all
+  Neuroimaging data analysis pipelines in Python3 -- documentation
+
+[32mpython-oslo.context-doc[0m/resolute 1:6.3.0-2ubuntu1 all
+  WSGI context helpers for OpenStack - doc
+
+[32mpython-oslo.middleware-doc[0m/resolute 8.0.0-2 all
+  various WSGI middleware components for OpenStack - doc
+
+[32mpython-pbr-doc[0m/resolute 7.0.3-2 all
+  inject useful and sensible default behaviors into setuptools - doc
+
+[32mpython-pyfunceble-doc[0m/resolute 4.3.1-1 all
+  Check availability of domains, IPs or URLs (common documentation)
+
+[32mpython-pymodbus-doc[0m/resolute 3.8.6-2 all
+  full Modbus protocol implementation, documentation
+
+[32mpython-pyomop-doc[0m/resolute 4.3.0-1 all
+  OHSDI OMOP Common Data Model tools (Documentation)
+
+[32mpython-repoze.tm2-doc[0m/resolute 2.2.0-1 all
+  Zope-like transaction manager WSGI middleware documentation
+
+[32mpython-usgs-doc[0m/resolute 0.3.6-1 all
+  Access the USGS inventory service (documentation)
+
+[32mpython-wheel-common[0m/resolute 0.46.3-2 all
+  built-package format for Python (command-line scripts)
+
+[32mpython3-aiocsv[0m/resolute 1.4.0-1build1 amd64
+  asynchronous CSV reading and writing
+
+[32mpython3-aiostream[0m/resolute 0.7.1-1 all
+  Generator-based operators for asynchronous iteration
+
+[32mpython3-apertium-lex-tools[0m/resolute 0.5.0-1build3 amd64
+  Apertium lexical selection module (Python 3 module)
+
+[32mpython3-asgi-csrf[0m/resolute 0.11-2build1 all
+  ASGI middleware for protecting against CSRF attacks
+
+[32mpython3-bcbio[0m/resolute 1.2.9-4 all
+  library for analysing high-throughput sequencing data
+
+[32mpython3-bioxtasraw[0m/resolute 2.3.1-1build1 amd64
+  process biological small angle scattering data
+
+[32mpython3-blessed[0m/resolute 1.21.0-1 all
+  Thin, practical wrapper around terminal capabilities in Python3
+
+[32mpython3-borghash[0m/resolute 0.1.1-2 amd64
+  Memory-efficient hashtable implementations as a Python3 library implemented in Cython.
+
+[32mpython3-borgstore[0m/resolute 0.4.0-1 all
+  Simple key/value store implementation in Python
+
+[32mpython3-cassandra[0m/resolute 3.29.2-6build1 amd64
+  Python driver for Apache Cassandra (Python 3)
+
+[32mpython3-cassandra-doc[0m/resolute 3.29.2-6build1 all
+  Python driver for Apache Cassandra (documentation)
+
+[32mpython3-cgecore[0m/resolute 1.5.6+ds-2 all
+  Python3 module for the Center for Genomic Epidemiology
+
+[32mpython3-chemspipy[0m/resolute 2.0.0-3 all
+  ChemSpiPy provides a way to interact with
+
+[32mpython3-cpl[0m/resolute 0.7.4-4build5 amd64
+  Control pipeline recipes from the ESO (Python3)
+
+[32mpython3-dar[0m/resolute 2.8.3-1build1 amd64
+  Disk ARchive: Python bindings
+
+[32mpython3-dendropy[0m/resolute 4.6.1-2 all
+  DendroPy Phylogenetic Computing Library (Python 3)
+
+[32mpython3-dials-data[0m/resolute 2.4.0-3 all
+  Python data files used for regression tests in DIALS, dxtbx, xia2
+
+[32mpython3-django-pipeline[0m/resolute 4.1.0-2build1 all
+  Asset packaging library for Django (Python3 version)
+
+[32mpython3-domdf-python-tools[0m/resolute 3.10.0-3 all
+  Helpful functions for Python
+
+[32mpython3-dyda[0m/resolute 1.41.1-2build1 all
+  dynamic data pipeline framework for DT42 applications
+
+[32mpython3-dyda-pipeline-config[0m/resolute 1.41.1-2build1 all
+  dynamic data pipeline framework for DT42 applications (config)
+
+[32mpython3-easyprocess[0m/resolute 1.1-2build1 all
+  easy to use python subprocess interface - Python 3.X
+
+[32mpython3-emmet-core[0m/resolute 0.84.2-2 all
+  Core models for the Materials Project (Python 3)
+
+[32mpython3-flask-openapi3[0m/resolute 4.3.1-1 all
+  Web API framework based on Flask
+
+[32mpython3-fluids[0m/resolute 1.1.0-1 all
+  Python 3 fluid dynamics and engineering design library
+
+[32mpython3-gwcs[0m/resolute 1.0.3-1 all
+  Tools for managing the WCS of astronomical data (Python 3)
+
+[32mpython3-hl7[0m/resolute 0.4.5-3 all
+  Python3 library for parsing HL7 messages
+
+[32mpython3-id[0m/resolute 1.6.1-1 all
+  Python tool for generating and managing OIDC identities
+
+[32mpython3-joblib[0m/resolute 1.5.2-1 all
+  tools to provide lightweight pipelining in Python
+
+[32mpython3-karabo-bridge[0m/resolute 0.6.2-2 all
+  Python 3 tools to request data from the Karabo controlsystem
+
+[32mpython3-libpulse[0m/resolute 0.7-1 all
+  async Python 3 bindings for Pulseaudio and Pipewire pulse library
+
+[32mpython3-libpyvinyl[0m/resolute 1.2.0-2 all
+  python APIs for Virtual Neutron and x-raY Laboratory
+
+[32mpython3-maggma[0m/resolute 0.72.0-1 all
+  build scientific data processing pipelines in Python
+
+[32mpython3-mdp[0m/resolute 3.6-10 all
+  Modular toolkit for Data Processing
+
+[32mpython3-mpiplus[0m/resolute 0.0.2+ds-1build1 all
+  Python GPU framework for alchemical free energy calculations (Python 3)
+
+[32mpython3-multiprocess[0m/resolute 0.70.19-1 all
+  better multiprocessing and multithreading in Python
+
+[32mpython3-nanostat[0m/resolute 1.4.0-4 all
+  statistics on long biological sequences
+
+[32mpython3-networking-bagpipe[0m/resolute 24.0.0-0ubuntu1 all
+  Driver and agent code to use BagPipe implementation (Python 3)
+
+[32mpython3-nipype[0m/resolute 1.10.0-1 all
+  Neuroimaging data analysis pipelines in Python3
+
+[32mpython3-numcodecs[0m/resolute 0.16.5+ds-3ubuntu1 amd64
+  buffer compression and transformation codecs for Python
+
+[32mpython3-opentelemetry-sdk[0m/resolute 1.39.1-2 all
+  OpenTelemetry Python SDK
+
+[32mpython3-oslo.context[0m/resolute 1:6.3.0-2ubuntu1 all
+  WSGI context helpers for OpenStack - Python 3.x
+
+[32mpython3-oslo.middleware[0m/resolute 8.0.0-2 all
+  various WSGI middleware components for OpenStack - Python 3.x
+
+[32mpython3-pandocfilters[0m/resolute 1.5.1-1 all
+  python3 bindings for Pandoc's filters
+
+[32mpython3-papermill[0m/resolute 2.6.0-5 all
+  Parameterize, execute, and analyze notebooks
+
+[32mpython3-pbr[0m/resolute 7.0.3-2 all
+  inject useful and sensible default behaviors into setuptools - Python 3.x
+
+[32mpython3-pdbtools[0m/resolute 2.6.0-1 all
+  tools for manipulating and editing PDB files (Python 3 package)
+
+[32mpython3-pdm[0m/resolute 2.23.1-4 all
+  next generation Python package management tool
+
+[32mpython3-peachpy[0m/resolute 0.0~git20211013.257881e-1.1build1 amd64
+  Portable Efficient Assembly Codegen in Higher-level Python (Python 3)
+
+[32mpython3-picopore[0m/resolute 1.2.0-3build1 all
+  lossless compression of Nanopore files (Python3 module)
+
+[32mpython3-pip[0m/resolute,now 25.1.1+dfsg-1ubuntu2 all [installed]
+  Python package installer
+
+[32mpython3-pip-whl[0m/resolute 25.1.1+dfsg-1ubuntu2 all
+  Python package installer (pip wheel)
+
+[32mpython3-pipdeptree[0m/resolute 2.30.0-1 amd64
+  display dependency tree of the installed Python 3 packages
+
+[32mpython3-ptyprocess[0m/resolute 0.7.0-6build1 all
+  Run a subprocess in a pseudo terminal from Python 3
+
+[32mpython3-pyassimp[0m/resolute 6.0.4+ds-1build1 all
+  3D model import library (Python3 bindings)
+
+[32mpython3-pyfunceble[0m/resolute 4.3.1-1 all
+  Check availability of domains, IPs or URLs
+
+[32mpython3-pygnuplot[0m/resolute 0.12.3-1 all
+  Simple Python wrapper for Gnuplot
+
+[32mpython3-pymodbus[0m/resolute 3.8.6-2 all
+  full Modbus protocol implementation for Python 3
+
+[32mpython3-pynpoint[0m/resolute 0.11.0-7 all
+  Pipeline for processing and analysis of high-contrast imaging data
+
+[32mpython3-pyomop[0m/resolute 4.3.0-1 all
+  OHSDI OMOP Common Data Model tools (Python3 version)
+
+[32mpython3-pyorick[0m/resolute 1.5-2 all
+  Python 3 module to execute Yorick code
+
+[32mpython3-pyproject-hooks[0m/resolute 1.2.0-1 all
+  Wrappers to call pyproject.toml-based build backend hooks
+
+[32mpython3-pyqtbuild[0m/resolute 1.19.0+dfsg-1 all
+  PEP 517 compliant PyQt build system
+
+[32mpython3-pyroma[0m/resolute 5.0.1-1 all
+  Python packaging quality checker (Python3 build)
+
+[32mpython3-pyvisa-sim[0m/resolute 0.6.0-3 all
+  Simulated backend for PyVISA implementing TCPIP, GPIB, RS232, and USB resources
+
+[32mpython3-repoze.tm2[0m/resolute 2.2.0-1 all
+  Zope-like transaction manager WSGI middleware (Python 3)
+
+[32mpython3-requirement-parser[0m/resolute 0.13.0-1 all
+  Python module for parsing Pip requirement files (transitional package)
+
+[32mpython3-requirements[0m/resolute 0.13.0-1 all
+  Python module for parsing Pip requirement files
+
+[32mpython3-retry[0m/resolute 0.9.2-5 all
+  easy to use retry decorator
+
+[32mpython3-returns[0m/resolute 0.26.0-3 all
+  Make your functions return something meaningful, typed, and safe
+
+[32mpython3-sercol[0m/resolute 0.0+git20250731-2 all
+  openvax immunoinformatics pipeline's helper classes
+
+[32mpython3-sklearn-pandas[0m/resolute 2.2.0-6 all
+  Pandas integration with sklearn (Python 3)
+
+[32mpython3-specreduce[0m/resolute 1.7.0-2 all
+  Astropy package to reduce and calibrate astronomical spectra
+
+[32mpython3-standard-pipes[0m/resolute 3.13.0-5 all
+  pipes Standard Python Lib (Python 3)
+
+[32mpython3-streamlink[0m/resolute 8.2.0-1 all
+  Python module for extracting video streams from various websites
+
+[32mpython3-streamlink-doc[0m/resolute 8.2.0-1 all
+  CLI for extracting video streams from various websites (documentation)
+
+[32mpython3-streamz[0m/resolute 0.6.5-2 all
+  build pipelines to manage continuous streams of data
+
+[32mpython3-striprtf[0m/resolute 0.0.29-1 all
+  Simple library to convert rtf to text
+
+[32mpython3-taskipy[0m/resolute 1.14.1-2 all
+  tasks runner for Python projects
+
+[32mpython3-torch-geometric[0m/resolute 2.6.1-7 all
+  Graph Neural Network Library for PyTorch
+
+[32mpython3-truststore[0m/resolute 0.10.4-1 all
+  Python Library to verify certificates using native system trust stores
+
+[32mpython3-unearth[0m/resolute 0.18.2-1 all
+  utility to fetch and download python packages
+
+[32mpython3-usgs[0m/resolute 0.3.6-1 all
+  Access the USGS inventory service
+
+[32mpython3-virtualenv[0m/resolute 20.36.1+ds-1 all
+  Python virtual environment creator
+
+[32mpython3-vsts-cd-manager[0m/resolute 1.0.2-6build1 all
+  Visual Studio Team Services Continuous Delivery Manager
+
+[32mpython3-wheel[0m/resolute,now 0.46.3-2 all [installed,automatic]
+  built-package format for Python
+
+[32mpythonpy[0m/resolute 0.4.11b-4 all
+  'python -c', with tab completion and shorthand
+
+[32mq2-alignment[0m/resolute 2024.5.0-1ubuntu3 all
+  QIIME 2 plugin for generating and manipulating alignments
+
+[32mq2-cutadapt[0m/resolute 2024.5.0-1build2 amd64
+  QIIME 2 plugin to work with adapters in sequence data
+
+[32mq2-dada2[0m/resolute 2024.5.0-1ubuntu3 amd64
+  QIIME 2 plugin to work with adapters in sequence data
+
+[32mq2-demux[0m/resolute 2024.5.0+dfsg-1ubuntu3 all
+  QIIME 2 plugin for demultiplexing of sequence reads
+
+[32mq2-diversity-lib[0m/resolute 2024.5.0-1ubuntu3 all
+  QIIME2 plugin to expose diversity metrics/measures as actions
+
+[32mq2-emperor[0m/resolute 2024.5.0-2build1 all
+  QIIME2 plugin for display of ordination plots
+
+[32mq2-feature-classifier[0m/resolute 2024.5.0-1 all
+  QIIME 2 plugin supporting taxonomic classification
+
+[32mq2-feature-table[0m/resolute 2024.5.0+dfsg-1ubuntu3 all
+  QIIME 2 plugin supporting operations on feature tables
+
+[32mq2-fragment-insertion[0m/resolute 2024.5.0-1ubuntu3 amd64
+  QIIME 2 plugin for fragment insertion
+
+[32mq2-metadata[0m/resolute 2024.5.0+dfsg-1build2 amd64
+  QIIME 2 plugin for working with and visualizing Metadata
+
+[32mq2-quality-control[0m/resolute 2024.5.0-2 all
+  QIIME 2 plugin for quality assurance of feature and sequence data
+
+[32mq2-quality-filter[0m/resolute 2024.5.0-1ubuntu3 all
+  QIIME2 plugin for PHRED-based filtering and trimming
+
+[32mq2-sample-classifier[0m/resolute 2024.5.0-2build1 all
+  QIIME 2 plugin for machine learning prediction of sample data
+
+[32mq2-taxa[0m/resolute 2024.5.0+dfsg-1build2 all
+  QIIME 2 plugin for working with feature taxonomy annotations
+
+[32mq2-types[0m/resolute 2024.5.0-1ubuntu3 all
+  QIIME 2 plugin defining types for microbiome analysis
+
+[32mq2cli[0m/resolute 2024.5.0-2ubuntu3 all
+  Click-based command line interface for QIIME 2
+
+[32mq2templates[0m/resolute 2024.5.0+ds-3build1 all
+  Design template package for QIIME 2 Plugins
+
+[32mqcumber[0m/resolute 2.3.0-3 all
+  quality control of genomic sequences
+
+[32mqhull-bin[0m/resolute 2020.2-8 amd64
+  calculate convex hulls and related structures (utilities)
+
+[32mqiime[0m/resolute 2024.5.0-1ubuntu3 all
+  Quantitative Insights Into Microbial Ecology
+
+[32mqml6-module-org-kde-pipewire[0m/resolute 6.6.4-0ubuntu1 amd64
+  KDE's Pipewire libraries - QML module
+
+[32mqmmp[0m/resolute 2.3.1-1 amd64
+  feature-rich audio player with support of many formats
+
+[32mqnapi[0m/resolute 0.2.3-2build3 amd64
+  application that downloads Polish subtitles from www.napiprojekt.pl
+
+[32mqpwgraph[0m/resolute 0.9.9-1 amd64
+  User interface for controlling the PipeWire Graph
+
+[32mqtrvsim[0m/resolute 0.9.8-1build1 amd64
+  RISC-V CPU simulator for education
+
+[32mquickplot[0m/resolute 1.0.1~rc-3build1 amd64
+  fast interactive 2D plotter and data viewer
+
+[32mr-bioc-dada2[0m/resolute 1.34.0+dfsg-2 amd64
+  sample inference from amplicon sequencing data
+
+[32mr-bioc-grohmm[0m/resolute 1.40.3-4 amd64
+  GRO-seq Analysis Pipeline
+
+[32mr-bioc-mergeomics[0m/resolute 1.34.0-2 all
+  Integrative network analysis of omics data
+
+[32mr-bioc-purecn[0m/resolute 2.12.0+dfsg-2 all
+  copy number calling and SNV classification using targeted short read sequencing
+
+[32mr-bioc-rcwl[0m/resolute 1.22.0+ds-2 all
+  An R interface to the Common Workflow Language
+
+[32mr-bioc-rhdf5filters[0m/resolute 1.18.1+dfsg-1 amd64
+  GNU R HDF5 compression filters
+
+[32mr-bioc-tcgabiolinks[0m/resolute 2.34.1+dfsg-1 all
+  GNU R/Bioconductor package for integrative analysis with GDC data
+
+[32mr-cran-areal[0m/resolute 0.1.8+dfsg-2 all
+  GNU R areal weighted interpolation
+
+[32mr-cran-httr2[0m/resolute 1.1.1-2 all
+  perform HTTP requests and process the responses in GNU R
+
+[32mr-cran-huge[0m/resolute 1.3.5-2 amd64
+  GNU R high-dimensional undirected graph estimation
+
+[32mr-cran-jsonlite[0m/resolute 2.0.0+dfsg-2 amd64
+  A Simple and Robust JSON Parser and Generator for R
+
+[32mr-cran-kableextra[0m/resolute 1.4.0+dfsg-2 all
+  construct complex table with 'kable' and pipe syntax in GNU R
+
+[32mr-cran-littler[0m/resolute 0.3.22-1 amd64
+  GNU R scripting and command-line front-end
+
+[32mr-cran-magrittr[0m/resolute 2.0.4-2 amd64
+  A Forward-Pipe Operator for R
+
+[32mr-cran-maldiquant[0m/resolute 1.22.3-2 amd64
+  Quantitative Analysis of Mass Spectrometry Data
+
+[32mr-cran-modelr[0m/resolute 0.1.11-1 all
+  GNU R modelling functions that work with the pipe
+
+[32mr-cran-nozzle.r1[0m/resolute 1.1-1.1+dfsg-2 all
+  GNU R nozzle reports
+
+[32mr-cran-rlist[0m/resolute 0.4.6.2-1build1 all
+  GNU R toolbox for non-tabular data manipulation
+
+[32mr-cran-rstatix[0m/resolute 0.7.3-1 all
+  Pipe-Friendly Framework for Basic Statistical Tests
+
+[32mr-cran-skimr[0m/resolute 2.2.2+dfsg-1 all
+  GNU R compact and flexible summaries of data
+
+[32mr-cran-tidyr[0m/resolute 1.3.2-1 amd64
+  GNU R package to easily tidy data
+
+[32mr-cran-webgestaltr[0m/resolute 0.4.6-2 amd64
+  find over-represented properties in gene lists
+
+[32mradeontop[0m/resolute 1.4-2build1 amd64
+  Utility to show Radeon GPU utilization
+
+[32mrdiff-backup[0m/resolute 2.2.6-3ubuntu3 amd64
+  remote incremental backup
+
+[32mreapr[0m/resolute 1.0.18+dfsg-7build1 amd64
+  universal tool for genome assembly evaluation
+
+[32mretry[0m/resolute 1.0.6-1 amd64
+  Retry a command until the command succeeds
+
+[32mroary[0m/resolute 3.13.0+dfsg-2build1 all
+  high speed stand alone pan genome pipeline
+
+[32mruby-ace-rails-ap[0m/resolute 4.5-1 all
+  ajax.org Cloud9 Editor (Ace) for the Rails asset pipeline
+
+[32mruby-autoprefixer-rails[0m/resolute 10.4.21.0+dfsg1+~cs24.8.25-1 all
+  Rails integration for the autoprefixer tool
+
+[32mruby-beautify[0m/resolute 0.97.4-4build1 all
+  CLI binary and module that will pretty up Ruby code
+
+[32mruby-em-http-request[0m/resolute 1.1.7-1 all
+  EventMachine based, async HTTP Request client
+
+[32mruby-gitlab-markup[0m/resolute 1.9.0-2 all
+  Fork from github-markup GitLab uses to render non markdown content
+
+[32mruby-html-pipeline[0m/resolute 2.14.3-2 all
+  GitHub HTML processing filters and utilities
+
+[32mruby-jquery-rails[0m/resolute 4.6.1-1 all
+  jQuery for Rails 3+
+
+[32mruby-net-http-pipeline[0m/resolute 1.0.1-4 all
+  HTTP/1.1 pipelining implementation atop Net::HTTP
+
+[32mruby-propshaft[0m/resolute 1.3.1-1 all
+  asset pipeline library for Rails
+
+[32mruby-pygments.rb[0m/resolute 4.0.0+ds-1 all
+  pygments wrapper for Ruby
+
+[32mruby-rails-assets-jquery-placeholder[0m/resolute 2.3.1-3 all
+  provide jquery-placeholder via asset pipeline
+
+[32mruby-rails-assets-markdown-it-hashtag[0m/resolute 0.4.0-2 all
+  hashtag for markdown-it markdown parser via rails pipeline
+
+[32mruby-rails-assets-markdown-it-sanitizer[0m/resolute 0.4.3-2 all
+  sanitizer for markdown-it markdown parser via rails pipeline
+
+[32mruby-rails-assets-punycode[0m/resolute 2.2.3+dfsg-2build1 all
+  provide punycode converter via rails asset pipeline
+
+[32mruby-rails-propshaft[0m/resolute 1.1.0-3 all
+  asset pipeline library for Rails
+
+[32mruby-redis[0m/resolute 5.4.1-1 all
+  Ruby client library for Redis
+
+[32mruby-select2-rails[0m/resolute 4.0.13-1 all
+  integrate Select2 javascript library with Rails asset pipeline
+
+[32mruby-webkit2-gtk[0m/resolute 4.3.4-3 all
+  WebKitGTK+ bindings for the Ruby language
+
+[32mrygel-gst-launch[0m/resolute 45.0-1ubuntu1 amd64
+  GNOME UPnP/DLNA services - gst-launch plugin
+
+[32msalmon[0m/resolute 1.10.3+ds1-3 amd64
+  wicked-fast transcript quantification from RNA-seq data
+
+[32mscilab[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package for numerical computations
+
+[32mscilab-data[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package for numerical computations (data files)
+
+[32mscilab-doc[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package (English documentations)
+
+[32mscilab-doc-fr[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package (French documentation)
+
+[32mscilab-doc-ja[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package (Japanese documentation)
+
+[32mscilab-doc-pt-br[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package (Brazilian Portuguese documentation)
+
+[32mscilab-full-bin[0m/resolute 2024.1.0+dfsg1-2 amd64
+  Scientific software package for numerical computations (all binary files)
+
+[32mscilab-include[0m/resolute 2024.1.0+dfsg1-2 amd64
+  Scientific software package for numerical computations (include files)
+
+[32mscilab-minimal-bin[0m/resolute 2024.1.0+dfsg1-2 amd64
+  Scientific software package for numerical computations (minimal binary files)
+
+[32mscilab-test[0m/resolute 2024.1.0+dfsg1-2 all
+  Scientific software package for numerical computations (test files)
+
+[32mscotch[0m/resolute 7.0.11-1ubuntu1 amd64
+  programs and libraries for graph, mesh and hypergraph partitioning
+
+[32mseqsero[0m/resolute 1.0.1+dfsg-6build1 amd64
+  Salmonella serotyping from genome sequencing data
+
+[32mshovill[0m/resolute 1.1.0-11 amd64
+  Assemble bacterial isolate genomes from Illumina paired-end reads
+
+[32mshovill-examples[0m/resolute 1.1.0-11 all
+  Test Data for shovill
+
+[32msideretro[0m/resolute 1.1.6-2build1 amd64
+  pipeline for detecting Somatic Insertion of DE novo RETROcopies
+
+[32msim4db[0m/resolute 0~20150903+r2013-10build1 amd64
+  batch spliced alignment of cDNA sequences to a target genome
+
+[32msimple-whip-client[0m/resolute 0.0~git20240308-1build1 amd64
+  simple GStreamer-based WHIP client
+
+[32msluice[0m/resolute 0.03.01-1build1 amd64
+  rate limiting data piping tool
+
+[32msnapserver[0m/resolute 0.34.0-2 amd64
+  Snapcast server
+
+[32msnpsift[0m/resolute 5.2.e+dfsg-2build1 all
+  tool to annotate and manipulate genome variants - tool
+
+[32msocat[0m/resolute 1.8.1.1-1 amd64
+  multipurpose relay for bidirectional data transfer
+
+[32mspades[0m/resolute 4.0.0+really3.15.5+dfsg-3 amd64
+  genome assembler for single-cell and isolates data sets
+
+[32msphinxsearch[0m/resolute 2.2.11-8build6 amd64
+  Fast standalone full-text SQL search engine
+
+[32mspi-tools[0m/resolute 0.8.4-1build1 amd64
+  Simple command line tools to help using Linux spidev devices
+
+[32mspip[0m/resolute 4.4.9+dfsg-1 all
+  website engine for publishing
+
+[32mspiped[0m/resolute 1.6.4-1 amd64
+  create secure pipes between socket addresses
+
+[32mspirv-cross[0m/resolute 2021.01.15+1.4.335.0-1 amd64
+  Convert SPIR-V to other shader languages (CLI tool)
+
+[32mspirv-reflect[0m/resolute 1.4.335.0-0ubuntu1 amd64
+  Convert SPIR-V to other shader languages
+
+[32msptlrx[0m/resolute 1.2.3-1build1 amd64
+  Synchronized lyrics in your terminal
+
+[32msqlite-utils[0m/resolute 3.38-1 all
+  CLI tool and Python utility functions for manipulating SQLite
+
+[32msssd-dbus[0m/resolute 2.12.0-1ubuntu5 amd64
+  System Security Services Daemon -- D-Bus responder
+
+[32mstacks[0m/resolute 2.68+dfsg-2build1 amd64
+  pipeline for building loci from short-read DNA sequences
+
+[32mstarman[0m/resolute 0.4017-1build1 all
+  high-performance preforking PSGI/Plack web server
+
+[32mstda[0m/resolute 1.3.1-2.1build1 all
+  simple tools for data analysis (stda)
+
+[32mstops[0m/resolute 0.4.0-1build1 all
+  Stop and instrument definitions for Aeolus
+
+[32mstreamlink[0m/resolute 8.2.0-1 all
+  CLI for extracting video streams from various websites to a video player
+
+[32mstress-ng[0m/resolute 0.20.01-1 amd64
+  tool to load and stress a computer
+
+[32mstylish-haskell[0m/resolute 0.15.1.0-1 amd64
+  Haskell code prettifier
+
+[32msugar-pippy-activity[0m/resolute 76-1build1 all
+  Sugar Learning Platform - Python programming activity
+
+[32mtestssl.sh[0m/resolute 3.2.2+dfsg-1 all
+  Command line tool to check TLS/SSL ciphers, protocols and cryptographic flaws
+
+[32mtexlive-music[0m/resolute 2025.20260124-1 all
+  TeX Live: Music packages
+
+[32mtheli[0m/resolute 3.1.4-2build1 amd64
+  Astronomical image data reduction pipeline
+
+[32mtio[0m/resolute 3.9-1build1 amd64
+  simple TTY terminal I/O application
+
+[32mtlswrapper[0m/resolute 0~20251001-1 amd64
+  TLS encryption wrapper
+
+[32mtopp[0m/resolute 2.6.0+cleaned1-6build1 amd64
+  set of programs implementing The OpenMS Proteomic Pipeline
+
+[32mtox-uv[0m/resolute 1.29.0-1 all
+  tox plugin replacing virtualenv and pip with uv
+
+[32mtracetuner[0m/resolute 3.0.6~beta+dfsg-4build1 amd64
+  interpretation of DNA Sanger sequencing data
+
+[32mtrimmomatic[0m/resolute 0.39+dfsg-2build1 all
+  flexible read trimming tool for Illumina NGS data
+
+[32mtrinity[0m/resolute 1.9+git20250902.294c465-1 amd64
+  system call fuzz tester
+
+[32mtrscripts[0m/resolute 1.18+nmu3build1 all
+  Scripts for reencoding text files and BDF-fonts
+
+[32mttyplot[0m/resolute 1.7.0-1build1 amd64
+  realtime plotting utility for text mode consoles and terminals
+
+[32mttyrec[0m/resolute 1.1.7.1-2build1 amd64
+  Terminal interaction recorder and player (for tty)
+
+[32mubuntustudio-installer[0m/resolute 2.0.7 all
+  Installer and audio configuration tools for Ubuntu Studio
+
+[32mubuntustudio-pipewire-config[0m/resolute 26.04.34 all
+  Configuration for PipeWire with JACK integration
+
+[32mubuntustudio-pulseaudio-config[0m/resolute 26.04.34 all
+  Transitional Metapackage PulseAudio > PipeWire Config
+
+[32mukui-volume-control[0m/resolute 4.20.0.1-0ubuntu2 amd64
+  UKUI audio service and volume control utilities
+
+[32municycler[0m/resolute 0.5.1+dfsg-3 amd64
+  hybrid assembly pipeline for bacterial genomes
+
+[32municycler-data[0m/resolute 0.5.1+dfsg-3 all
+  hybrid assembly pipeline for bacterial genomes (data package)
+
+[32musgs[0m/resolute 0.3.6-1 all
+  Access the USGS inventory service -- CLI
+
+[32muwsgi-core[0m/resolute 2.0.31-2 amd64
+  fast, self-healing application container server (core)
+
+[32mvarnish-redis[0m/resolute 21.0+20250505-3build1 amd64
+  access Redis servers from VCL
+
+[32mvde2[0m/resolute 2.3.2+r586-12.2 amd64
+  Virtual Distributed Ethernet
+
+[32mvirtualenv[0m/resolute 20.36.1+ds-1 all
+  Python virtual environment creator (Dependency package)
+
+[32mvlc-plugin-pipewire[0m/resolute 3-3build3 amd64
+  PipeWire audio plugins for VLC
+
+[32mvodovod[0m/resolute 1.10-5build1 amd64
+  puzzle game, you must lead the water to the storage tank
+
+[32mwasix-libc[0m/resolute 2025.12.24.1+ds-1 amd64
+  wasix libc implementation for WebAssembly
+
+[32mwaypipe[0m/resolute 0.11.0-1build1 amd64
+  Network transparency with Wayland
+
+[32mwebdis[0m/resolute 0.1.22+ds-1build1 amd64
+  simple web server providing an HTTP interface to Redis
+
+[32mwebsocketd[0m/resolute 0.4.1-1build2 amd64
+  Turn any program that uses STDIN/STDOUT into a WebSocket server
+
+[32mweechat[0m/resolute 4.8.1-1 all
+  Fast, light and extensible chat client (metapackage)
+
+[32mweechat-curses[0m/resolute 4.8.1-1 amd64
+  Fast, light and extensible chat client - console client
+
+[32mweechat-headless[0m/resolute 4.8.1-1 amd64
+  Fast, light and extensible chat client - headless client
+
+[32mweechat-plugins[0m/resolute 4.8.1-1 amd64
+  Fast, light and extensible chat client - plugins
+
+[32mweightwatcher[0m/resolute 1.12+dfsg-3build1 amd64
+  Combine maps and polygon data for astronomical image processing
+
+[32mwireplumber[0m/resolute 0.5.13-1ubuntu1 amd64
+  modular session / policy manager for PipeWire
+
+[32mwireplumber-doc[0m/resolute 0.5.13-1ubuntu1 all
+  modular session / policy manager for PipeWire - documentation
+
+[32mwireplumber-system-services[0m/resolute 0.5.13-1ubuntu1 all
+  modular session / policy manager for PipeWire (system services)
+
+[32mwl-clipboard[0m/resolute 2.2.1-2build1 amd64
+  command line interface to the wayland clipboard
+
+[32mxml2[0m/resolute 0.5-6 amd64
+  Convert between XML, HTML, CSV and a line-oriented format
+
+[32mxplot[0m/resolute 1.19-9.2build1 amd64
+  simple on-screen x-y column data plotter
+
+[32mxscreensaver-gl[0m/resolute 6.08+dfsg1-1ubuntu5 amd64
+  GL(Mesa) screen saver modules for screensaver frontends
+
+[32myample[0m/resolute 0.30-6build1 all
+  Yet Another Mail Processing Language
+
+[32myouplot[0m/resolute 0.4.6-2 all
+  command line tool for Unicode plotting in the terminal
+
+[32myq[0m/resolute 3.4.3-2 all
+  Command-line YAML processor - jq wrapper for YAML documents
+

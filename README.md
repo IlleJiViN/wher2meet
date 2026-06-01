@@ -1,0 +1,49 @@
+# Gravity (SpotSync AI)
+
+## 📌 프로젝트 설정 가이드 (팀원용)
+
+### 1. 환경 변수 설정
+이 저장소를 클론한 후, 가장 먼저 환경 변수 파일을 설정해야 합니다.
+`Google API Key` 및 `Kakao API Key`가 필요합니다.
+
+```bash
+# .env.example 파일을 복사하여 .env 파일을 생성합니다.
+cp .env.example .env
+```
+생성된 `.env` 파일에 각자의 API 키를 입력하세요.
+
+### 2. 가상환경 세팅 및 패키지 설치
+Python 가상환경을 만들고 필요한 라이브러리를 설치합니다.
+```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# Mac/Linux
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### 3. 데이터베이스 (PostGIS) 복원 가이드
+이 프로젝트는 **엠베딩 벡터 DB(PostGIS)**를 사용합니다. 
+로컬에서 엠베딩을 처음부터 다시 생성하면 시간과 비용이 많이 들기 때문에, 팀에서 공유하는 **DB 백업(Dump) 파일**을 다운받아 복원하는 것을 권장합니다.
+
+1. **Docker 컨테이너 실행**
+   ```bash
+   docker-compose up -d
+   ```
+2. **DB 덤프 파일 다운로드**
+   * 팀 구글 드라이브 링크: `[여기에 팀원에게 공유할 구글 드라이브 링크 삽입]`
+   * 다운로드 받은 `spotsync_db_backup.dump` 파일을 프로젝트 루트 폴더에 위치시킵니다.
+3. **DB 복원 명령어 실행**
+   ```bash
+   # 도커 컨테이너 내부로 덤프 파일을 복사한 뒤 복원합니다.
+   docker cp spotsync_db_backup.dump spotsync-postgis:/tmp/
+   docker exec -it spotsync-postgis pg_restore -U postgres -d spotsync -1 /tmp/spotsync_db_backup.dump
+   ```
+
+### 4. 애플리케이션 실행
+모든 준비가 완료되었습니다! 앱을 실행합니다.
+```bash
+streamlit run code.py
+```

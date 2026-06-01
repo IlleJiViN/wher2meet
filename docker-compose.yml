@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgis:
+    image: postgis/postgis:15-3.3
+    container_name: spotsync-postgis
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=spotsync
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: spotsync-api
+    ports:
+      - "8000:8000"
+    environment:
+      # api 컨테이너 내부에서 DB에 접근할 때는 localhost 대신 db 컨테이너 이름(postgis)을 사용해야 합니다.
+      # ai_search.py 내의 DATABASE_URL을 환경변수로 받을 수 있도록 수정이 필요합니다.
+      - DATABASE_URL=postgresql://postgres:postgres@postgis:5432/spotsync
+    depends_on:
+      - postgis
+    restart: unless-stopped
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.4
+    container_name: spotsync-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+
+volumes:
+  postgis_data:
+  es_data:
