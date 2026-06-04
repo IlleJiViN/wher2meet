@@ -5,6 +5,10 @@ import requests
 from geopy.geocoders import Nominatim
 import statistics
 import pandas as pd
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Set page layout to wide
 st.set_page_config(page_title="Multi-Origin Routing App", layout="wide")
@@ -51,7 +55,7 @@ def get_route_info(origin_coords, dest_coords):
         import traceback; traceback.print_exc()
     return None, None
 
-def search_destinations(keyword, origin_data, similarity_threshold=0.15, kakao_api_key=None):
+def search_destinations(keyword, origin_data, similarity_threshold=0.15):
     dest_data = []
     if not origin_data:
         return dest_data
@@ -68,8 +72,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15, kakao_a
         api_url = "http://127.0.0.1:8000/search"
         payload = {
             "query": keyword,
-            "user_latitude": avg_lat,
-            "user_longitude": avg_lon,
+            "users": [{"name": name, "latitude": coords[0], "longitude": coords[1]} for name, coords in origin_data],
             "radius_meters": float(radius),
             "similarity_threshold": similarity_threshold,
             "top_k": 15
@@ -93,14 +96,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15, kakao_a
         import traceback; traceback.print_exc()
         
     # 2. Try Kakao Local API for semantic search (if API key is provided or found in .env)
-    if not kakao_api_key or kakao_api_key.strip() == "":
-        import os
-        if os.path.exists(".env"):
-            with open(".env", "r", encoding="utf-8") as f:
-                for line in f:
-                    if line.strip().startswith("KAKAO_API_KEY="):
-                        kakao_api_key = line.split("=", 1)[1].strip()
-                        break
+    kakao_api_key = os.environ.get("KAKAO_API_KEY", "")
                         
     if kakao_api_key and kakao_api_key.strip() != "":
         url = "https://dapi.kakao.com/v2/local/search/keyword.json"
@@ -302,8 +298,8 @@ with st.sidebar:
     st.header("2. Search Destination")
     st.markdown("🤖 **SpotSync AI Local Semantic Search is active!** Enter any natural language search intent:")
     keyword = st.text_input("Search Intent (e.g., '노트북 하기 좋은 카페', '방음 합주실'):")
-    similarity_threshold = st.slider("Similarity Threshold (유사도 임계치):", 0.0, 1.0, 0.15, 0.05)
-    kakao_api_key = st.text_input("Kakao REST API Key (Optional, for fallback web search):", type="password")
+    similarity_threshold = st.slider("AI Similarity Threshold", 0.0, 1.0, 0.15, 0.05,
+                                    help="Lower = broader matches, Higher = stricter semantic matches.")
     search_btn = st.button("Calculate & Rank", type="primary", use_container_width=True)
 
 # --- Main Area UI ---
@@ -318,7 +314,7 @@ if search_btn and keyword:
     st.session_state.search_active = True
     
     with st.spinner(f"Searching for '{keyword}' near the center point..."):
-        dest_data = search_destinations(keyword, origins_data, similarity_threshold, kakao_api_key)
+        dest_data = search_destinations(keyword, origins_data, similarity_threshold)
         
     if not dest_data:
         st.session_state.results = []
