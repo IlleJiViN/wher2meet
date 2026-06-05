@@ -1,4 +1,5 @@
 import os
+import time
 import numpy as np
 from sqlalchemy import create_engine, text
 from elasticsearch import Elasticsearch, helpers
@@ -46,40 +47,67 @@ def main():
     print(f"Creating index {INDEX_NAME}...")
     es.indices.create(index=INDEX_NAME, body=mapping)
     
-    # Fetch data from Postgres
-    print("Fetching places from PostgreSQL...")
-    with engine.connect() as conn:
-        result = conn.execute(text("SELECT id, name, category, latitude, longitude, address, embedding_vector_v4 FROM places WHERE embedding_vector_v4 IS NOT NULL"))
-        rows = result.fetchall()
-        
-    print(f"Found {len(rows)} places with embeddings. Indexing to Elasticsearch...")
+    # Fetch data from Postgres and stream to Elasticsearch
+    print("Fetching places from PostgreSQL & indexing to Elasticsearch...")
     
-    actions = []
-    for row in rows:
-        place_id, name, category, lat, lon, address, embedding = row
+    def generate_actions():
+        chunk_size = 5000
+        offset = 0
+        total_indexed = 0
         
-        doc = {
-            "_index": INDEX_NAME,
-            "_id": place_id,
-            "_source": {
-                "id": place_id,
-                "name": name,
-                "category": category,
-                "address": address,
-                "location": {
-                    "lat": float(lat),
-                    "lon": float(lon)
-                },
-                "embedding_vector_v4": np.array(embedding, dtype='float32').tolist()
-            }
-        }
-        actions.append(doc)
-        
-    if actions:
-        helpers.bulk(es, actions)
-        print("Indexing completed.")
-    else:
-        print("No data to index.")
+        while True:
+            query = text("""
+                SELECT id, name, category, latitude, longitude, address, embedding_vector_v4 
+                FROM places 
+                WHERE embedding_vector_v4 IS NOT NULL
+                ORDER BY id
+                LIMIT :limit OFFSET :offset
+            """)
+            
+            with engine.connect() as conn:
+                result = conn.execute(query, {"limit": chunk_size, "offset": offset})
+                rows = result.fetchall()
+                
+            if not rows:
+                break
+                
+            for row in rows:
+                place_id, name, category, lat, lon, address, embedding = row
+                
+                doc = {
+                    "_index": INDEX_NAME,
+                    "_id": place_id,
+                    "_source": {
+                        "id": place_id,
+                        "name": name,
+                        "category": category,
+                        "address": address,
+                        "location": {
+                            "lat": float(lat),
+                            "lon": float(lon)
+                        },
+                        "embedding_vector_v4": np.array(embedding, dtype='float32').tolist()
+                    }
+                }
+                yield doc
+                
+            offset += len(rows)
+            total_indexed += len(rows)
+            print(f"Prepared {total_indexed} actions...")
+
+    success, failed = 0, 0
+    t0 = time.perf_counter()
+    for ok, item in helpers.streaming_bulk(es, generate_actions(), chunk_size=2000, max_chunk_bytes=10*1024*1024):
+        if ok:
+            success += 1
+        else:
+            failed += 1
+        if (success + failed) % 10000 == 0:
+            elapsed = time.perf_counter() - t0
+            speed = (success + failed) / elapsed if elapsed > 0 else 0
+            print(f"Indexed {(success + failed)} records | Speed: {speed:.1f} rows/s")
+            
+    print(f"Indexing completed. Success: {success}, Failed: {failed}")
 
 if __name__ == "__main__":
     main()

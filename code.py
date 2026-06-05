@@ -6,15 +6,90 @@ from geopy.geocoders import Nominatim
 import statistics
 import pandas as pd
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Set page layout to wide
 st.set_page_config(page_title="Multi-Origin Routing App", layout="wide")
 
-st.title("🗺️ Multi-Origin Routing & Fair Meetup App")
-st.markdown("Find the most fair and optimal meeting spots for multiple starting locations.")
+
+if "lang" not in st.session_state:
+    st.session_state.lang = "한국어"
+
+T = {
+    "English": {
+        "title": "🗺️ Multi-Origin Routing & Fair Meetup App",
+        "subtitle": "Find the most fair and optimal meeting spots for multiple starting locations.",
+        "step1": "1. Starting Points",
+        "enter_origin": "Enter an origin address:",
+        "add_origin": "Add Origin",
+        "finding_addr": "Finding address...",
+        "addr_not_found": "Address not found.",
+        "origin_list": "### Origin List",
+        "step2": "2. Search Destination",
+        "ai_active": "🤖 **SpotSync AI Local Semantic Search is active!** Enter any natural language search intent:",
+        "search_intent": "Search Intent (e.g., 'PC방', '맛집', '카페'):",
+        "sim_thresh": "AI Similarity Threshold",
+        "sim_help": "Lower = broader matches, Higher = stricter semantic matches.",
+        "engine": "AI Engine Version",
+        "engine_help": "Select quantization version to test.",
+        "calc_rank": "Calculate & Rank",
+        "need_origin": "👈 Please add at least one starting point from the sidebar to begin.",
+        "searching": "Searching for '{}' near the center point...",
+        "no_dest": "No destinations found for '{}'. Try a different keyword.",
+        "calc_routes": "Calculating routes...",
+        "routing_to": "Routing to {}...",
+        "ranked_overview": "📊 Ranked Candidate Locations Overview",
+        "rank": "Rank",
+        "name": "Name",
+        "addr": "Address",
+        "total_dist": "Total Dist (km)",
+        "fairness": "Fairness Variance (km)",
+        "interactive_map": "Interactive Map",
+        "top_ranked": "Top Ranked Locations",
+        "route_from": "Route from {}",
+        "top_pick": "★ Top Pick: {}",
+        "candidate": "Candidate: {}"
+    },
+    "한국어": {
+        "title": "🗺️ 다중 출발지 최적 모임 장소 찾기",
+        "subtitle": "여러 명의 출발 위치를 기반으로 가장 공평하고 최적화된 모임 장소를 찾아보세요.",
+        "step1": "1. 출발지 설정",
+        "enter_origin": "출발지 주소를 입력하세요:",
+        "add_origin": "출발지 추가",
+        "finding_addr": "주소 검색 중...",
+        "addr_not_found": "주소를 찾을 수 없습니다.",
+        "origin_list": "### 출발지 목록",
+        "step2": "2. 목적지 검색",
+        "ai_active": "🤖 **SpotSync AI 로컬 시맨틱 검색이 켜져 있습니다!** 자연어로 원하는 장소를 검색하세요:",
+        "search_intent": "검색어 (예: '피방', '맛집', '합주실'):",
+        "sim_thresh": "AI 유사도 임계치",
+        "sim_help": "낮음 = 폭넓은 검색, 높음 = 엄격한 의미 일치",
+        "engine": "AI 엔진 버전",
+        "engine_help": "테스트할 양자화 버전을 선택하세요.",
+        "calc_rank": "계산 및 순위 매기기",
+        "need_origin": "👈 시작하려면 사이드바에서 최소 하나 이상의 출발지를 추가해 주세요.",
+        "searching": "중심점 근처에서 '{}' 검색 중...",
+        "no_dest": "'{}'에 대한 목적지를 찾을 수 없습니다. 다른 검색어를 시도해 보세요.",
+        "calc_routes": "경로 계산 중...",
+        "routing_to": "{}까지 경로 계산 중...",
+        "ranked_overview": "📊 추천 목적지 순위 요약",
+        "rank": "순위",
+        "name": "이름",
+        "addr": "주소",
+        "total_dist": "총 이동 거리 (km)",
+        "fairness": "거리 편차 (km)",
+        "interactive_map": "인터랙티브 지도",
+        "top_ranked": "최상위 추천 장소",
+        "route_from": "출발지: {}",
+        "top_pick": "★ 1위 추천: {}",
+        "candidate": "후보 장소: {}"
+    }
+}
+
+def t(key):
+    return T[st.session_state.lang][key]
+
+st.title(t("title"))
+st.markdown(t("subtitle"))
 
 # --- Initialization ---
 if 'origins' not in st.session_state:
@@ -69,13 +144,14 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
     
     # 1. Try our local SpotSync AI PostGIS Semantic Search Server!
     try:
-        api_url = "http://127.0.0.1:8000/search"
+        api_url = "http://127.0.0.1:8001/search"
         payload = {
             "query": keyword,
             "users": [{"name": name, "latitude": coords[0], "longitude": coords[1]} for name, coords in origin_data],
             "radius_meters": float(radius),
             "similarity_threshold": similarity_threshold,
-            "top_k": 15
+            "top_k": 10,
+            "engine_version": "v6" if "v6" in st.session_state.get("engine_version", "v5") else ("v4" if "v4" in st.session_state.get("engine_version", "v5") else "v5")
         }
         resp = requests.post(api_url, json=payload, timeout=30)
         if resp.status_code == 200:
@@ -95,8 +171,8 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
     except Exception as e:
         import traceback; traceback.print_exc()
         
-    # 2. Try Kakao Local API for semantic search (if API key is provided or found in .env)
-    kakao_api_key = os.environ.get("KAKAO_API_KEY", "")
+    # 2. Try Kakao Local API for semantic search
+    kakao_api_key = "7b7cb3eb311174538e017186a7f9ab21"
                         
     if kakao_api_key and kakao_api_key.strip() != "":
         url = "https://dapi.kakao.com/v2/local/search/keyword.json"
@@ -136,7 +212,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
             params["category_group_code"] = category_code
             
         try:
-            # Kakao returns max 15 results per page. Paginate to get 20.
+            # Kakao returns max 15 results per page. Paginate to get 10.
             for page in [1, 2]:
                 params["page"] = page
                 resp = requests.get(url, headers=headers, params=params, timeout=10)
@@ -148,9 +224,9 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
                             "address": place.get("road_address_name") or place.get("address_name"),
                             "coords": (float(place["y"]), float(place["x"]))
                         })
-                        if len(dest_data) >= 20:
+                        if len(dest_data) >= 10:
                             break
-                    if len(dest_data) >= 20 or data.get("meta", {}).get("is_end"):
+                    if len(dest_data) >= 10 or data.get("meta", {}).get("is_end"):
                         break
             if dest_data:
                 st.session_state.search_status = f"⚡ Kakao Local API (Found {len(dest_data)} matches)"
@@ -223,7 +299,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
                 addr = " ".join(filter(None, addr_parts)) or (tags.get('amenity') or tags.get('shop') or "OSM POI")
                 
                 dest_data.append({"name": name, "address": addr, "coords": (lat, lon)})
-                if len(dest_data) >= 20:
+                if len(dest_data) >= 10:
                     break
     except Exception as e:
         import traceback; traceback.print_exc()
@@ -235,7 +311,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
         else:
             st.session_state.search_status = f"🌍 OpenStreetMap (Overpass) (Found {len(dest_data)} matches)"
         
-    if len(dest_data) < 20:
+    if len(dest_data) < 10:
         try:
             # Prevent 10,000km global search bug by bounding to the user's starting region in South Korea
             delta = 0.15  # ~15km bounding box
@@ -246,7 +322,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
             locations = geolocator.geocode(
                 keyword, 
                 exactly_one=False, 
-                limit=20, 
+                limit=10, 
                 viewbox=viewbox, 
                 bounded=True, 
                 country_codes="kr"
@@ -256,7 +332,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
                     short_name = ",".join(loc.address.split(",")[:2])
                     if not any(d["name"] == short_name for d in dest_data):
                         dest_data.append({"name": short_name, "address": loc.address, "coords": (loc.latitude, loc.longitude)})
-                        if len(dest_data) >= 20:
+                        if len(dest_data) >= 10:
                             break
         except Exception as e:
             import traceback; traceback.print_exc()
@@ -268,25 +344,29 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
         else:
             st.session_state.search_status = f"🗺️ OSM Address Geocoder Fallback (Found {len(dest_data)} matches)"
             
+    if dest_data:
+        dest_data = dest_data[:10]
+        
     return dest_data
 
 # --- Sidebar UI ---
 with st.sidebar:
-    st.header("1. Starting Points")
+    st.session_state.lang = st.radio("Language / 언어", ["한국어", "English"], index=0 if st.session_state.lang == "한국어" else 1)
+    st.header(t("step1"))
     with st.form("origin_form", clear_on_submit=True):
-        new_origin = st.text_input("Enter an origin address:")
-        submitted = st.form_submit_button("Add Origin")
+        new_origin = st.text_input(t("enter_origin"))
+        submitted = st.form_submit_button(t("add_origin"))
         if submitted and new_origin:
-            with st.spinner("Finding address..."):
+            with st.spinner(t("finding_addr")):
                 coords = geocode_address(new_origin)
                 if coords:
                     st.session_state.origins[new_origin] = coords
                     st.session_state.search_active = False
                 else:
-                    st.error("Address not found.")
+                    st.error(t("addr_not_found"))
                     
     if st.session_state.origins:
-        st.write("### Origin List")
+        st.write(t("origin_list"))
         for orig in list(st.session_state.origins.keys()):
             col1, col2 = st.columns([4, 1])
             col1.write(f"📍 {orig}")
@@ -295,16 +375,17 @@ with st.sidebar:
                 st.session_state.search_active = False
                 st.rerun()
 
-    st.header("2. Search Destination")
-    st.markdown("🤖 **SpotSync AI Local Semantic Search is active!** Enter any natural language search intent:")
-    keyword = st.text_input("Search Intent (e.g., '노트북 하기 좋은 카페', '방음 합주실'):")
-    similarity_threshold = st.slider("AI Similarity Threshold", 0.0, 1.0, 0.15, 0.05,
-                                    help="Lower = broader matches, Higher = stricter semantic matches.")
-    search_btn = st.button("Calculate & Rank", type="primary", use_container_width=True)
+    st.header(t("step2"))
+    st.markdown(t("ai_active"))
+    keyword = st.text_input(t("search_intent"))
+    similarity_threshold = st.slider(t("sim_thresh"), 0.0, 1.0, 0.15, 0.05, help=t("sim_help"))
+    engine_version = st.selectbox(t("engine"), ["v4 (Float32 원본)", "v5 (INT8 양자화 모델)", "v6 (Float16 DB 압축)"], index=1, help=t("engine_help"))
+    st.session_state.engine_version = engine_version
+    search_btn = st.button(t("calc_rank"), type="primary", use_container_width=True)
 
 # --- Main Area UI ---
 if not st.session_state.origins:
-    st.info("👈 Please add at least one starting point from the sidebar to begin.")
+    st.info(t("need_origin"))
     st.stop()
 
 origins_data = [(name, coords) for name, coords in st.session_state.origins.items()]
@@ -313,19 +394,19 @@ origins_data = [(name, coords) for name, coords in st.session_state.origins.item
 if search_btn and keyword:
     st.session_state.search_active = True
     
-    with st.spinner(f"Searching for '{keyword}' near the center point..."):
+    with st.spinner(t("searching").format(keyword)):
         dest_data = search_destinations(keyword, origins_data, similarity_threshold)
         
     if not dest_data:
         st.session_state.results = []
-        st.error(f"No destinations found for '{keyword}'. Try a different keyword.")
+        st.error(t("no_dest").format(keyword))
     else:
         temp_results = []
-        progress_text = "Calculating routes..."
+        progress_text = t("calc_routes")
         my_bar = st.progress(0, text=progress_text)
         
         for idx, dest in enumerate(dest_data):
-            my_bar.progress((idx + 1) / len(dest_data), text=f"Routing to {dest['name']}...")
+            my_bar.progress((idx + 1) / len(dest_data), text=t("routing_to").format(dest["name"]))
             distances = []
             dest_routes = []
             valid = True
@@ -384,21 +465,21 @@ if "search_status" in st.session_state:
         st.warning(f"⚠️ **경고 (로컬 AI 백엔드 & Kakao API 모두 오프라인)**: {status_str}로 구동되었습니다. 자연어 시맨틱 검색 성능이 매우 떨어질 수 있습니다.")
 
 results = st.session_state.results
-results.sort(key=lambda x: x["score"])
+results.sort(key=lambda x: x["total_dist"])
 
 # --- Display Candidates Table ---
-st.subheader("📊 Ranked Candidate Locations Overview")
+st.subheader(t("ranked_overview"))
 df_data = []
 for i, res in enumerate(results):
     df_data.append({
-        "Rank": i + 1,
-        "Name": res["name"],
-        "Address": res["address"],
-        "Total Dist (km)": round(res["total_dist"] / 1000, 2),
-        "Fairness Variance (km)": round(res["fairness"] / 1000, 2)
+        t("rank"): i + 1,
+        t("name"): res["name"],
+        t("addr"): res["address"],
+        t("total_dist"): round(res["total_dist"] / 1000, 2),
+        t("fairness"): round(res["fairness"] / 1000, 2)
     })
 
-df = pd.DataFrame(df_data).set_index("Rank")
+df = pd.DataFrame(df_data).set_index(t("rank"))
 st.dataframe(df, use_container_width=True)
 st.divider()
 
@@ -406,7 +487,7 @@ st.divider()
 col_map, col_results = st.columns([2, 1])
 
 with col_map:
-    st.subheader("Interactive Map")
+    st.subheader(t("interactive_map"))
     top_dest = results[0]
     
     m = folium.Map(location=top_dest["coords"], zoom_start=13)
@@ -420,14 +501,14 @@ with col_map:
         
     folium.Marker(
         top_dest["coords"],
-        tooltip=f"★ Top Pick: {top_dest['name']}",
+        tooltip=t("top_pick").format(top_dest["name"]),
         icon=folium.Icon(color="red", icon="star")
     ).add_to(m)
     
     for res in results[1:]:
         folium.Marker(
             res["coords"],
-            tooltip=f"Candidate: {res['name']}",
+            tooltip=t("candidate").format(res["name"]),
             icon=folium.Icon(color="gray", icon="info-sign")
         ).add_to(m)
         
@@ -437,15 +518,22 @@ with col_map:
             color=colors[i % len(colors)],
             weight=4,
             opacity=0.8,
-            tooltip=f"Route from {route_info['name']}"
+            tooltip=t("route_from").format(route_info["name"])
         ).add_to(m)
         
     st_folium(m, use_container_width=True, height=600, returned_objects=[])
 
 with col_results:
-    st.subheader("Top Ranked Locations")
+    st.subheader(t("top_ranked"))
     for i, res in enumerate(results):
         with st.expander(f"#{i+1}: {res['name']} {'★' if i == 0 else ''}", expanded=(i == 0)):
-            st.markdown(f"**Address:** {res['address']}")
-            st.markdown(f"**Total Distance:** {res['total_dist']/1000:.2f} km")
-            st.markdown(f"**Fairness Variance:** {res['fairness']/1000:.2f} km")
+            import urllib.parse
+            safe_query = urllib.parse.quote(f"{res['address']} {res['name']}")
+            kakao_url = f"https://map.kakao.com/link/search/{safe_query}"
+            naver_url = f"https://map.naver.com/v5/search/{safe_query}"
+            google_url = f"https://www.google.com/maps/search/?api=1&query={safe_query}"
+            
+            st.markdown(f"**🗺️ 지도에서 보기:** [🟡 카카오맵]({kakao_url}) &nbsp;｜&nbsp; [🟢 네이버 지도]({naver_url}) &nbsp;｜&nbsp; [🔵 구글 지도]({google_url})")
+            st.markdown(f"**📍 주소:** {res['address']}")
+            st.markdown(f"**🚶 총 이동 거리:** {res['total_dist']/1000:.2f} km")
+            st.markdown(f"**⚖️ 거리 형평성(오차):** {res['fairness']/1000:.2f} km")

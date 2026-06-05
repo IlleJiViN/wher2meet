@@ -36,10 +36,19 @@ def run_embedding_phase(engine, model, text_col, vector_col, total_remaining):
             ids = [row[0] for row in result]
             texts = [row[1] for row in result]
             
-            # Filter out any None or empty values to prevent model failure
+            invalid_ids = [idx for idx, txt in zip(ids, texts) if txt is None or str(txt).strip() == ""]
+            if invalid_ids:
+                with engine.begin() as conn:
+                    # We execute batch updates for invalid ones
+                    for place_id in invalid_ids:
+                        conn.execute(
+                            text(f"UPDATE places SET {vector_col} = :emb WHERE id = :id"),
+                            {"emb": [0.0]*768, "id": place_id}
+                        )
+            
             valid_pairs = [(idx, txt) for idx, txt in zip(ids, texts) if txt is not None and str(txt).strip() != ""]
             if not valid_pairs:
-                break
+                continue
                 
             valid_ids = [p[0] for p in valid_pairs]
             valid_texts = [p[1] for p in valid_pairs]

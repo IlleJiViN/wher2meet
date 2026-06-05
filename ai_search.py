@@ -3,7 +3,7 @@ import time
 import math
 import sys
 from contextlib import asynccontextmanager
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 
 import numpy as np
 import torch
@@ -132,48 +132,22 @@ MOCK_PLACES: List[Dict[str, Any]] = [
 ]
 
 # Pydantic validation schemas
+class UserCoordinate(BaseModel):
+    name: str = Field(..., description="Name of the user origin.")
+    latitude: float = Field(..., description="Latitude of the origin.")
+    longitude: float = Field(..., description="Longitude of the origin.")
+
+
 class SearchRequest(BaseModel):
-    query: str = Field(
-        ...,
-        description="The natural language search intent.",
-        example="드럼 연습할 만한 방음 잘되는 곳"
-    )
-    user_latitude: float = Field(
-        ...,
-        description="Current latitude of the user.",
-        example=37.5560
-    )
-    user_longitude: float = Field(
-        ...,
-        description="Current longitude of the user.",
-        example=126.9370
-    )
-    radius_meters: float = Field(
-        default=1000.0,
-        gt=0.0,
-        description="Search radius in meters.",
-        example=1000.0
-    )
-    category_threshold: float = Field(
-        default=0.45,
-        ge=0.0,
-        le=1.0,
-        description="Minimum cosine similarity to consider a category relevant.",
-        example=0.45
-    )
-    similarity_threshold: float = Field(
-        default=0.40,
-        ge=0.0,
-        le=1.0,
-        description="Minimum final combined score threshold to return a place.",
-        example=0.40
-    )
-    top_k: int = Field(
-        default=3,
-        ge=1,
-        le=50,
-        description="The number of matched locations to return."
-    )
+    query: str
+    user_latitude: float | None = None
+    user_longitude: float | None = None
+    users: List[UserCoordinate] | None = None
+    radius_meters: float = 1000.0
+    category_threshold: float = 0.35
+    similarity_threshold: float = 0.25
+    top_k: int = 3
+    engine_version: str = "v5"
 
 
 class PlaceSearchResult(BaseModel):
@@ -208,19 +182,27 @@ async def lifespan(app: FastAPI):
     start_time = time.perf_counter()
     
     try:
-        # Step 1: Load SentenceTransformer on CPU
-        model = SentenceTransformer(MODEL_NAME, device=DEVICE)
+        # Step 1: Load SentenceTransformer on CPU (v4 and v5)
+        model_v4 = SentenceTransformer(MODEL_NAME, device=DEVICE)
+
+        import torch
+        print("[STARTUP] Applying INT8 Dynamic Quantization (v5) for CPU acceleration...")
+        model_v5 = SentenceTransformer(MODEL_NAME, device=DEVICE)
+        model_v5[0].auto_model = torch.quantization.quantize_dynamic(
+            model_v5[0].auto_model, {torch.nn.Linear}, dtype=torch.qint8
+        )
         
-        # Warm up model to cache torch variables
-        _ = model.encode("웜업", convert_to_numpy=True)
+        # Warm up models
+        _ = model_v4.encode("웜업", convert_to_numpy=True)
+        _ = model_v5.encode("웜업", convert_to_numpy=True)
         
-        # Step 2: Pre-cache category prototype vectors
+        # Step 2: Pre-cache category prototype vectors (using v4 as baseline)
         print(f"[STARTUP] Encoding {len(CATEGORY_DESCRIPTIONS)} category prototypes...")
         category_names = list(CATEGORY_DESCRIPTIONS.keys())
         category_texts = list(CATEGORY_DESCRIPTIONS.values())
         
         with torch.no_grad():
-            category_vectors = model.encode(
+            category_vectors = model_v4.encode(
                 category_texts,
                 convert_to_numpy=True,
                 normalize_embeddings=True
@@ -238,7 +220,8 @@ async def lifespan(app: FastAPI):
         print("[STARTUP] PostgreSQL/PostGIS connection established successfully.")
         
         # Assign variables to global app state
-        app.state.model = model
+        app.state.model_v4 = model_v4
+        app.state.model_v5 = model_v5
         app.state.engine = engine
         app.state.category_names = category_names
         app.state.category_vectors = category_vectors
@@ -306,7 +289,7 @@ async def semantic_search(request: Request, body: SearchRequest):
     6. Final score = α × category_sim + β × name_sim.
     7. Return top_k results sorted by final score.
     """
-    model: SentenceTransformer = request.app.state.model
+    model: SentenceTransformer = request.app.state.model_v5 if body.engine_version == 'v5' else request.app.state.model_v4
     engine = request.app.state.engine
     category_names: List[str] = request.app.state.category_names
     category_vectors: np.ndarray = request.app.state.category_vectors
@@ -320,15 +303,51 @@ async def semantic_search(request: Request, body: SearchRequest):
     start_time = time.perf_counter()
     
     try:
-        # ==================================================================
-        # Step 1: Encode query vector
-        # ==================================================================
+        lat = body.user_latitude
+        lon = body.user_longitude
+        print(f"[SEARCH DEBUG] Query: '{body.query}', Lat: {lat}, Lon: {lon}, Users: {body.users}")
+        
+        if body.users:
+            valid_users = [u for u in body.users if u.latitude is not None and u.longitude is not None]
+            if valid_users:
+                lat = sum(u.latitude for u in valid_users) / len(valid_users)
+                lon = sum(u.longitude for u in valid_users) / len(valid_users)
+                
+        if lat is None or lon is None:
+            return JSONResponse(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                content={"detail": "Either user_latitude/user_longitude or users list must be provided."}
+            )
+
+        # Encode name query separately to avoid location name bias (e.g. "이태원")
+        clean_name_query = body.query
+        if body.users:
+            for u in body.users:
+                clean_loc = u.name.replace("역", "").replace("삼거리", "").strip()
+                if len(clean_loc) >= 2:
+                    clean_name_query = clean_name_query.replace(clean_loc, "")
+        
+        # Strip common area names just in case
+        for area in ["이태원", "신촌", "홍대", "강남", "종로", "명동", "혜화", "대학로", "성수"]:
+            clean_name_query = clean_name_query.replace(area, "")
+        
+        clean_name_query = clean_name_query.strip()
+        if not clean_name_query:
+            clean_name_query = body.query # Fallback
+            
         with torch.no_grad():
             query_vector = model.encode(
                 [body.query],
                 convert_to_numpy=True,
                 normalize_embeddings=True
             ).astype('float32')  # Shape: (1, 768)
+            
+            # Encoded query specifically for names (without location bias)
+            name_query_vector = model.encode(
+                [clean_name_query],
+                convert_to_numpy=True,
+                normalize_embeddings=True
+            ).astype('float32')
         
         # ==================================================================
         # Step 2: Category prototype matching
@@ -349,26 +368,21 @@ async def semantic_search(request: Request, body: SearchRequest):
         # Sort matched categories by score for logging
         matched_categories.sort(key=lambda c: category_sim_map[c], reverse=True)
         
-        # If no categories match, return empty (query is too vague or unrelated)
-        if not matched_categories:
-            latency = (time.perf_counter() - start_time) * 1000
-            return SearchResponse(
-                query=body.query,
-                matched_categories=[],
-                results=[],
-                latency_ms=round(latency, 2)
-            )
-        
         # ==================================================================
         # Step 3: PostGIS spatial + category-filtered query
         # ==================================================================
         degrees = (body.radius_meters / 111000.0) * 1.1
         
         # Build category IN clause with parameterized values
-        cat_placeholders = ", ".join([f":cat_{i}" for i in range(len(matched_categories))])
+        if matched_categories:
+            cat_placeholders = ", ".join([f":cat_{i}" for i in range(len(matched_categories))])
+            category_filter_sql = f"AND category IN ({cat_placeholders})"
+        else:
+            category_filter_sql = "" # No category filter fallback
+            
         sql_params = {
-            "lon": body.user_longitude,
-            "lat": body.user_latitude,
+            "lon": lon,
+            "lat": lat,
             "degrees": degrees
         }
         for i, cat in enumerate(matched_categories):
@@ -381,10 +395,10 @@ async def semantic_search(request: Request, body: SearchRequest):
             FROM places
             WHERE location && ST_Expand(ST_SetSRID(ST_Point(:lon, :lat), 4326), :degrees)
               AND ST_DWithin(location, ST_SetSRID(ST_Point(:lon, :lat), 4326), :degrees)
-              AND category IN ({cat_placeholders})
+              {category_filter_sql}
               AND embedding_vector_v4 IS NOT NULL
             ORDER BY distance_meters ASC
-            LIMIT 200
+            LIMIT 3000
         """)
         
         candidates = []
@@ -414,20 +428,49 @@ async def semantic_search(request: Request, body: SearchRequest):
         # Extract pre-computed embeddings from DB results
         name_vectors = np.stack([c["embedding"] for c in candidates])
         
-        # Compute name similarity scores
-        name_scores = np.dot(name_vectors, query_vector.T).squeeze()
+        # Compute name similarity scores using the debiased name_query_vector
+        name_scores = np.dot(name_vectors, name_query_vector.T).squeeze()
         name_scores = np.atleast_1d(name_scores)
         
         # ==================================================================
         # Step 5: Compute final combined score and rank
         # ==================================================================
         scored_candidates = []
+        
+        # Extract semantic search intent keywords for boosting
+        boost_keywords = []
+        query_lower = body.query.lower()
+        if "와인" in query_lower or "wine" in query_lower:
+            boost_keywords.extend(["와인", "wine", "bar", "바", "펍", "pub"])
+        if "카페" in query_lower or "cafe" in query_lower or "커피" in query_lower:
+            boost_keywords.extend(["카페", "cafe", "커피", "coffee", "찻집"])
+        if "합주" in query_lower or "밴드" in query_lower:
+            boost_keywords.extend(["합주", "밴드", "연습실", "studio", "스튜디오"])
+        if "노래방" in query_lower or "코인" in query_lower:
+            boost_keywords.extend(["노래", "코인", "sing", "노래방"])
+            
         for idx, candidate in enumerate(candidates):
             cat_sim = category_sim_map.get(candidate["category"], 0.0)
             name_sim = float(name_scores[idx])
             
-            # Weighted combination
-            final_score = ALPHA_CATEGORY * cat_sim + BETA_NAME * max(name_sim, 0.0)
+            # Apply Text Boost if name contains matched query intent keywords
+            boost = 0.0
+            cand_name_lower = candidate["name"].lower()
+            if boost_keywords:
+                is_singing_room = "노래" in cand_name_lower or candidate["category"] == "노래방"
+                for kw in boost_keywords:
+                    if ("합주" in query_lower or "연습" in query_lower or "studio" in query_lower) and kw in ["연습실", "스튜디오", "studio"] and is_singing_room:
+                        continue
+                    if kw in cand_name_lower:
+                        boost += 0.30 # Boost score increased for sharper distinction
+                        break
+            
+            # Weighted combination fallback if no categories matched
+            if matched_categories:
+                final_score = ALPHA_CATEGORY * cat_sim + BETA_NAME * max(name_sim, 0.0) + boost
+            else:
+                # Fallback to pure name similarity if no categories match the query intent
+                final_score = max(name_sim, 0.0) + boost
             
             if final_score >= body.similarity_threshold:
                 scored_candidates.append({
@@ -488,7 +531,7 @@ async def semantic_search(request: Request, body: SearchRequest):
     description="Uses Elasticsearch for semantic vector search + keyword matching."
 )
 async def elasticsearch_hybrid_search(request: Request, body: SearchRequest):
-    model: SentenceTransformer = request.app.state.model
+    model: SentenceTransformer = request.app.state.model_v5 if body.engine_version == 'v5' else request.app.state.model_v4
     es: Elasticsearch = getattr(request.app.state, "es", None)
     
     if not model or not es:
@@ -500,6 +543,21 @@ async def elasticsearch_hybrid_search(request: Request, body: SearchRequest):
     start_time = time.perf_counter()
     
     try:
+        lat = body.user_latitude
+        lon = body.user_longitude
+        
+        if body.users:
+            valid_users = [u for u in body.users if u.latitude is not None and u.longitude is not None]
+            if valid_users:
+                lat = sum(u.latitude for u in valid_users) / len(valid_users)
+                lon = sum(u.longitude for u in valid_users) / len(valid_users)
+                
+        if lat is None or lon is None:
+            return JSONResponse(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                content={"detail": "Either user_latitude/user_longitude or users list must be provided."}
+            )
+
         with torch.no_grad():
             query_vector = model.encode(
                 [body.query],
@@ -520,8 +578,8 @@ async def elasticsearch_hybrid_search(request: Request, body: SearchRequest):
                             "geo_distance": {
                                 "distance": f"{body.radius_meters}m",
                                 "location": {
-                                    "lat": body.user_latitude,
-                                    "lon": body.user_longitude
+                                    "lat": lat,
+                                    "lon": lon
                                 }
                             }
                         }

@@ -1,0 +1,10 @@
+venv/
+pip/
+.antigravitycli/
+.git/
+project.tar.gz
+__pycache__/
+*.log
+*.dump
+node_modules/
+frontend/node_modules/
