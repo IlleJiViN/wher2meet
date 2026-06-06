@@ -14,7 +14,7 @@ from sentence_transformers import SentenceTransformer
 from sqlalchemy import create_engine, text
 from elasticsearch import Elasticsearch
 
-from categories import CATEGORY_DESCRIPTIONS
+from categories import CATEGORY_DESCRIPTIONS, CATEGORY_SYNONYMS
 
 # Reconfigure stdout/stderr encoding for UTF-8 on Windows
 if sys.stdout.encoding != 'utf-8':
@@ -196,7 +196,7 @@ async def lifespan(app: FastAPI):
         _ = model_v4.encode("웜업", convert_to_numpy=True)
         _ = model_v5.encode("웜업", convert_to_numpy=True)
         
-        # Step 2: Pre-cache category prototype vectors (using v4 as baseline)
+        # Step 2: Pre-cache category prototype vectors
         print(f"[STARTUP] Encoding {len(CATEGORY_DESCRIPTIONS)} category prototypes...")
         category_names = list(CATEGORY_DESCRIPTIONS.keys())
         category_texts = list(CATEGORY_DESCRIPTIONS.values())
@@ -275,8 +275,8 @@ app = FastAPI(
     "/search",
     response_model=SearchResponse,
     status_code=status.HTTP_200_OK,
-    summary="Semantic Location Search (v4 Decomposed Category Similarity)",
-    description="Matches query intent against category prototypes, filters candidates via PostGIS, then ranks by name similarity."
+    summary="Semantic Location Search (v3 - No Category Filter)",
+    description="Original where2meet logic using embedding_vector_v3."
 )
 async def semantic_search(request: Request, body: SearchRequest):
     """
@@ -365,6 +365,14 @@ async def semantic_search(request: Request, body: SearchRequest):
                 matched_categories.append(category_names[i])
                 category_sim_map[category_names[i]] = float(score)
         
+        # Explicit intent mapping via synonym dictionary
+        query_lower = body.query.lower()
+        for cat_name, synonyms in CATEGORY_SYNONYMS.items():
+            valid_keywords = synonyms + [cat_name.lower()]
+            if any(syn in query_lower for syn in valid_keywords):
+                if cat_name not in matched_categories:
+                    matched_categories.append(cat_name)
+                    category_sim_map[cat_name] = 1.0  # Max score for direct synonym match
         # Sort matched categories by score for logging
         matched_categories.sort(key=lambda c: category_sim_map[c], reverse=True)
         
@@ -378,8 +386,8 @@ async def semantic_search(request: Request, body: SearchRequest):
             cat_placeholders = ", ".join([f":cat_{i}" for i in range(len(matched_categories))])
             category_filter_sql = f"AND category IN ({cat_placeholders})"
         else:
-            category_filter_sql = "" # No category filter fallback
-            
+            category_filter_sql = ""  # No category filter fallback
+        
         sql_params = {
             "lon": lon,
             "lat": lat,
@@ -420,7 +428,7 @@ async def semantic_search(request: Request, body: SearchRequest):
             latency = (time.perf_counter() - start_time) * 1000
             return SearchResponse(
                 query=body.query,
-                matched_categories=matched_categories,
+                matched_categories=[],
                 results=[],
                 latency_ms=round(latency, 2)
             )

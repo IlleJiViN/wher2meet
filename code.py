@@ -151,7 +151,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15):
             "radius_meters": float(radius),
             "similarity_threshold": similarity_threshold,
             "top_k": 10,
-            "engine_version": "v6" if "v6" in st.session_state.get("engine_version", "v5") else ("v4" if "v4" in st.session_state.get("engine_version", "v5") else "v5")
+            "engine_version": "v4" if "v4" in st.session_state.get("engine_version", "v5") else "v5"
         }
         resp = requests.post(api_url, json=payload, timeout=30)
         if resp.status_code == 200:
@@ -379,7 +379,7 @@ with st.sidebar:
     st.markdown(t("ai_active"))
     keyword = st.text_input(t("search_intent"))
     similarity_threshold = st.slider(t("sim_thresh"), 0.0, 1.0, 0.15, 0.05, help=t("sim_help"))
-    engine_version = st.selectbox(t("engine"), ["v4 (Float32 원본)", "v5 (INT8 양자화 모델)", "v6 (Float16 DB 압축)"], index=1, help=t("engine_help"))
+    engine_version = st.selectbox(t("engine"), ["v4 (Float32 원본)", "v5 (INT8 양자화 모델)"], index=1, help=t("engine_help"))
     st.session_state.engine_version = engine_version
     search_btn = st.button(t("calc_rank"), type="primary", use_container_width=True)
 
@@ -465,7 +465,7 @@ if "search_status" in st.session_state:
         st.warning(f"⚠️ **경고 (로컬 AI 백엔드 & Kakao API 모두 오프라인)**: {status_str}로 구동되었습니다. 자연어 시맨틱 검색 성능이 매우 떨어질 수 있습니다.")
 
 results = st.session_state.results
-results.sort(key=lambda x: x["total_dist"])
+results.sort(key=lambda x: x["total_dist"] + x["fairness"])
 
 # --- Display Candidates Table ---
 st.subheader(t("ranked_overview"))
