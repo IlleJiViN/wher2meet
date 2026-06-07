@@ -67,34 +67,43 @@ def execute_search(
     matched_categories = []
     category_sim_map = {}
     
-    cat_scores = np.dot(category_vectors, query_vector.T).squeeze()
-    for i, score in enumerate(cat_scores):
-        if float(score) >= body.category_threshold:
-            matched_categories.append(category_names[i])
-            category_sim_map[category_names[i]] = float(score)
-            
+    explicit_matches = []
     query_lower = body.query.lower()
     for cat_name, synonyms in CATEGORY_SYNONYMS.items():
         valid_keywords = synonyms + [cat_name.lower()]
         if any(syn in query_lower for syn in valid_keywords):
-            if cat_name not in matched_categories:
-                matched_categories.append(cat_name)
+            explicit_matches.append(cat_name)
             category_sim_map[cat_name] = 1.0
-                
-    matched_categories.sort(key=lambda c: category_sim_map[c], reverse=True)
+            
+    # If explicit matches found, ONLY use them (strict filtering)
+    if explicit_matches:
+        matched_categories = explicit_matches
+    else:
+        # Otherwise, fall back to semantic similarity matching
+        cat_scores = np.dot(category_vectors, query_vector.T).squeeze()
+        for i, score in enumerate(cat_scores):
+            if float(score) >= body.category_threshold:
+                matched_categories.append(category_names[i])
+                category_sim_map[category_names[i]] = float(score)
+
+    matched_categories = list(set(matched_categories))
+    matched_categories.sort(key=lambda c: category_sim_map.get(c, 0.0), reverse=True)
     
     degrees = (body.radius_meters / 111000.0) * 1.1
     
     if matched_categories:
         cat_placeholders = ", ".join([f":cat_{i}" for i in range(len(matched_categories))])
-        category_filter_sql = f"AND category IN ({cat_placeholders})"
+        # Allow places that match the categories OR places that have the exact search query in their name
+        category_filter_sql = f"AND (category IN ({cat_placeholders}) OR name ILIKE :query_like)"
     else:
-        category_filter_sql = ""
+        # If no categories matched, at least try to find it in the name
+        category_filter_sql = "AND name ILIKE :query_like"
     
     sql_params = {
         "lon": lon,
         "lat": lat,
-        "degrees": degrees
+        "degrees": degrees,
+        "query_like": f"%{clean_name_query}%"
     }
     for i, cat in enumerate(matched_categories):
         sql_params[f"cat_{i}"] = cat
@@ -167,6 +176,10 @@ def execute_search(
                     boost += 0.30
                     break
         
+        if clean_name_query and clean_name_query.lower() in cand_name_lower:
+            boost += 1.0
+            cat_sim = 1.0  # Treat exact substring match as a perfect category match
+
         if matched_categories:
             final_score = ALPHA_CATEGORY * cat_sim + BETA_NAME * max(name_sim, 0.0) + boost
         else:
