@@ -10,6 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+        <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossOrigin="anonymous"></script>
       </head>
       <body>
         {children}

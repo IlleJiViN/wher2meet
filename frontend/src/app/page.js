@@ -15,6 +15,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [progressMsg, setProgressMsg] = useState('');
   const [results, setResults] = useState(null);
+  const [threshold, setThreshold] = useState(0.40);
 
   const loadingMessages = [
     "위치 기반 최적 중심점 연산 중...",
@@ -24,6 +25,10 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.Kakao && !window.Kakao.isInitialized()) {
+      window.Kakao.init('1615ae46bd96dd33b598163becc2a353');
+    }
+    
     let interval;
     if (isLoading && !newOrigin) {
       let idx = 0;
@@ -43,7 +48,7 @@ export default function Home() {
     
     setIsLoading(true);
     try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(newOrigin)}&format=json&limit=1&countrycodes=kr`);
+      const res = await fetch(`/api/geocode?q=${encodeURIComponent(newOrigin)}`);
       const data = await res.json();
       if (data && data.length > 0) {
         setOrigins([
@@ -101,6 +106,7 @@ export default function Home() {
           weight: o.weight
         })),
         radius_meters: 15000,
+        similarity_threshold: threshold,
         top_k: 7
       };
       
@@ -117,6 +123,36 @@ export default function Home() {
       alert("검색 중 오류가 발생했습니다.");
     }
     setIsLoading(false);
+  };
+
+  const handleShare = (res, idx) => {
+    if (typeof window !== 'undefined' && window.Kakao) {
+      window.Kakao.Share.sendDefault({
+        objectType: 'location',
+        address: res.address,
+        addressTitle: res.name,
+        content: {
+          title: `[${idx + 1}위 추천] ${res.name}`,
+          description: `SpotSync AI 추천 공평한 모임 장소\n카테고리: ${res.category}`,
+          imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+          link: {
+            mobileWebUrl: window.location.href || 'http://localhost:3000',
+            webUrl: window.location.href || 'http://localhost:3000',
+          },
+        },
+        buttons: [
+          {
+            title: 'SpotSync에서 자세히 보기',
+            link: {
+              mobileWebUrl: window.location.href || 'http://localhost:3000',
+              webUrl: window.location.href || 'http://localhost:3000',
+            },
+          },
+        ],
+      });
+    } else {
+      alert("카카오톡 공유 모듈을 불러오는 중입니다. 잠시 후 다시 시도해주세요.");
+    }
   };
 
   return (
@@ -186,9 +222,11 @@ export default function Home() {
       {/* AI Search Section */}
       <section className="px-6 mt-6">
         <div className="toss-card space-y-5">
-          <div className="flex items-center space-x-3">
-            <span className="text-[28px]">🤖</span>
-            <h2 className="text-[20px] font-bold text-[#191f28]">어떤 장소를 찾으시나요?</h2>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <span className="text-[28px]">🤖</span>
+              <h2 className="text-[20px] font-bold text-[#191f28]">어떤 장소를 찾으시나요?</h2>
+            </div>
           </div>
           <input 
             type="text" 
@@ -197,6 +235,21 @@ export default function Home() {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
+          <div className="pt-2 border-t border-gray-100">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-[14px] font-bold text-[#505967]">AI 검색 까다로움 정도</span>
+              <span className="text-[13px] text-[#3182f6] font-bold bg-[#e8f3ff] px-2 py-0.5 rounded">
+                {threshold < 0.4 ? '보통 (폭넓게)' : threshold < 0.6 ? '정확함 (추천)' : '매우 까다로움'}
+              </span>
+            </div>
+            <input 
+              type="range" 
+              min="0.2" max="0.75" step="0.05"
+              value={threshold}
+              onChange={(e) => setThreshold(parseFloat(e.target.value))}
+              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#3182f6]"
+            />
+          </div>
         </div>
       </section>
 
@@ -236,13 +289,19 @@ export default function Home() {
                     <p className="text-[#505967] text-[14px] leading-snug flex-1">{res.address}</p>
                   </div>
                   <div className="flex space-x-2 pt-1">
+                    <button
+                      onClick={() => handleShare(res, idx)}
+                      className="flex-none bg-[#3182f6]/10 text-[#3182f6] hover:bg-[#3182f6]/20 px-4 py-2 rounded-lg text-[13px] font-bold text-center transition-colors"
+                    >
+                      공유
+                    </button>
                     <a 
                       href={`https://map.naver.com/v5/search/${encodeURIComponent(res.address + ' ' + res.name)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 bg-[#03c75a]/10 text-[#03c75a] hover:bg-[#03c75a]/20 py-2 rounded-lg text-[13px] font-bold text-center transition-colors"
                     >
-                      네이버 지도로 보기
+                      네이버 지도
                     </a>
                     <a 
                       href={`https://map.kakao.com/link/search/${encodeURIComponent(res.address + ' ' + res.name)}`}
@@ -250,7 +309,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="flex-1 bg-[#fee500]/30 text-[#391b1b] hover:bg-[#fee500]/50 py-2 rounded-lg text-[13px] font-bold text-center transition-colors"
                     >
-                      카카오 지도로 보기
+                      카카오 지도
                     </a>
                   </div>
                 </div>
