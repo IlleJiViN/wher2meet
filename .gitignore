@@ -9,3 +9,4 @@ data/
 venv/
 scratch/
 .antigravitycli/
+onnx_model/

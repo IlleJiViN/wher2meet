@@ -1,0 +1,78 @@
+@import 'tailwindcss';
+
+@theme {
+  --background: #f2f4f6;
+  --foreground: #191f28;
+  --color-toss-blue: #3182f6;
+  --color-toss-blue-hover: #1b64da;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .toss-card {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    transition-property: all;
+    transition-duration: 200ms;
+  }
+  .toss-card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .toss-button {
+    background-color: var(--color-toss-blue);
+    color: white;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    transition-property: all;
+    transition-duration: 200ms;
+    width: 100%;
+    text-align: center;
+  }
+  .toss-button:hover {
+    background-color: var(--color-toss-blue-hover);
+  }
+  .toss-button:active {
+    transform: scale(0.98);
+  }
+
+  .toss-input {
+    background-color: var(--background);
+    border-radius: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: var(--foreground);
+    width: 100%;
+    transition-property: all;
+    transition-duration: 200ms;
+  }
+  .toss-input::placeholder {
+    color: #8b95a1;
+  }
+  .toss-input:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-toss-blue);
+    background-color: white;
+  }
+}

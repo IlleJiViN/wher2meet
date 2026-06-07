@@ -130,15 +130,14 @@ def get_route_info(origin_coords, dest_coords):
         import traceback; traceback.print_exc()
     return None, None
 
-def search_destinations(keyword, origin_data, similarity_threshold=0.15, search_radius_km=15.0):
+def search_destinations(keyword, origin_data, similarity_threshold=0.15):
     dest_data = []
     if not origin_data:
         return dest_data
         
-    total_weight = sum(w for _, _, w in origin_data)
-    avg_lat = sum(c[0] * w for _, c, w in origin_data) / total_weight
-    avg_lon = sum(c[1] * w for _, c, w in origin_data) / total_weight
-    radius = int(search_radius_km * 1000) 
+    avg_lat = sum(c[0] for _, c in origin_data) / len(origin_data)
+    avg_lon = sum(c[1] for _, c in origin_data) / len(origin_data)
+    radius = 15000 
     
     # Initialize search status
     st.session_state.search_status = "Unknown"
@@ -148,7 +147,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15, search_
         api_url = "http://127.0.0.1:8001/search"
         payload = {
             "query": keyword,
-            "users": [{"name": name, "latitude": coords[0], "longitude": coords[1], "weight": weight} for name, coords, weight in origin_data],
+            "users": [{"name": name, "latitude": coords[0], "longitude": coords[1]} for name, coords in origin_data],
             "radius_meters": float(radius),
             "similarity_threshold": similarity_threshold,
             "top_k": 10,
@@ -178,8 +177,7 @@ def search_destinations(keyword, origin_data, similarity_threshold=0.15, search_
         import traceback; traceback.print_exc()
         
     # 2. Try Kakao Local API for semantic search
-    import os
-    kakao_api_key = os.environ.get("KAKAO_API_KEY", "7b7cb3eb311174538e017186a7f9ab21")
+    kakao_api_key = "7b7cb3eb311174538e017186a7f9ab21"
                         
     if kakao_api_key and kakao_api_key.strip() != "":
         url = "https://dapi.kakao.com/v2/local/search/keyword.json"
@@ -367,7 +365,7 @@ with st.sidebar:
             with st.spinner(t("finding_addr")):
                 coords = geocode_address(new_origin)
                 if coords:
-                    st.session_state.origins[new_origin] = {"coords": coords, "weight": 1.0}
+                    st.session_state.origins[new_origin] = coords
                     st.session_state.search_active = False
                 else:
                     st.error(t("addr_not_found"))
@@ -375,11 +373,9 @@ with st.sidebar:
     if st.session_state.origins:
         st.write(t("origin_list"))
         for orig in list(st.session_state.origins.keys()):
-            col1, col2, col3 = st.columns([5, 3, 2])
+            col1, col2 = st.columns([4, 1])
             col1.write(f"📍 {orig}")
-            wt = col2.number_input("가중치 (Weight)", min_value=0.1, max_value=5.0, value=float(st.session_state.origins[orig]["weight"]), step=0.5, key=f"wt_{orig}")
-            st.session_state.origins[orig]["weight"] = wt
-            if col3.button("X", key=f"del_{orig}"):
+            if col2.button("X", key=f"del_{orig}"):
                 del st.session_state.origins[orig]
                 st.session_state.search_active = False
                 st.rerun()
@@ -387,7 +383,6 @@ with st.sidebar:
     st.header(t("step2"))
     st.markdown(t("ai_active"))
     keyword = st.text_input(t("search_intent"))
-    search_radius_km = st.slider("검색 반경 (km)", 1.0, 30.0, 15.0, 1.0)
     similarity_threshold = st.slider(t("sim_thresh"), 0.0, 1.0, 0.15, 0.05, help=t("sim_help"))
     engine_version = st.selectbox(t("engine"), ["v4 (Float32 원본)", "v5 (INT8 양자화 모델)"], index=1, help=t("engine_help"))
     st.session_state.engine_version = engine_version
@@ -398,14 +393,14 @@ if not st.session_state.origins:
     st.info(t("need_origin"))
     st.stop()
 
-origins_data = [(name, data["coords"], data["weight"]) for name, data in st.session_state.origins.items()]
+origins_data = [(name, coords) for name, coords in st.session_state.origins.items()]
     
 # --- Search Trigger & Routing Logic ---
 if search_btn and keyword:
     st.session_state.search_active = True
     
     with st.spinner(t("searching").format(keyword)):
-        dest_data = search_destinations(keyword, origins_data, similarity_threshold, search_radius_km)
+        dest_data = search_destinations(keyword, origins_data, similarity_threshold)
         
     if not dest_data:
         st.session_state.results = []
@@ -418,15 +413,13 @@ if search_btn and keyword:
         for idx, dest in enumerate(dest_data):
             my_bar.progress((idx + 1) / len(dest_data), text=t("routing_to").format(dest["name"]))
             distances = []
-            weighted_distances = []
             dest_routes = []
             valid = True
             
-            for orig_name, orig_coords, orig_weight in origins_data:
+            for orig_name, orig_coords in origins_data:
                 path, dist = get_route_info(orig_coords, dest["coords"])
                 if path:
                     distances.append(dist)
-                    weighted_distances.append(dist / max(orig_weight, 0.1))
                     dest_routes.append({"name": orig_name, "path": path})
                 else:
                     valid = False
@@ -435,11 +428,7 @@ if search_btn and keyword:
             if valid and distances:
                 total_dist = sum(distances)
                 fairness = statistics.stdev(distances) if len(distances) > 1 else 0.0
-                
-                # Weighted score for ranking (lower is better)
-                weighted_total = sum(weighted_distances)
-                weighted_fairness = statistics.stdev(weighted_distances) if len(weighted_distances) > 1 else 0.0
-                score = weighted_total + weighted_fairness
+                score = total_dist + fairness
                 
                 temp_results.append({
                     "name": dest["name"],
@@ -456,28 +445,13 @@ if search_btn and keyword:
 # --- Render Decisions ---
 if not st.session_state.search_active or not st.session_state.results:
     # Render default map with starting points
-    origins_data_list = list(st.session_state.origins.values())
-    if origins_data_list:
-        total_wt = sum(d["weight"] for d in origins_data_list)
-        if total_wt > 0:
-            avg_lat = sum(d["coords"][0] * d["weight"] for d in origins_data_list) / total_wt
-            avg_lon = sum(d["coords"][1] * d["weight"] for d in origins_data_list) / total_wt
-        else:
-            avg_lat = sum(d["coords"][0] for d in origins_data_list) / len(origins_data_list)
-            avg_lon = sum(d["coords"][1] for d in origins_data_list) / len(origins_data_list)
-        m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
-        
-        # Draw a star at the calculated midpoint
-        folium.Marker(
-            [avg_lat, avg_lon], 
-            tooltip="Weighted Midpoint", 
-            icon=folium.Icon(color="green", icon="star")
-        ).add_to(m)
-    else:
-        m = folium.Map(location=[37.5665, 126.9780], zoom_start=12) # Seoul Default
-
-    for name, data in st.session_state.origins.items():
-        folium.Marker(data["coords"], tooltip=f"{name} (wt: {data['weight']})", icon=folium.Icon(color="blue", icon="user")).add_to(m)
+    origins_list = list(st.session_state.origins.values())
+    avg_lat = sum(c[0] for c in origins_list) / len(origins_list)
+    avg_lon = sum(c[1] for c in origins_list) / len(origins_list)
+    
+    m = folium.Map(location=[avg_lat, avg_lon], zoom_start=12)
+    for name, coords in st.session_state.origins.items():
+        folium.Marker(coords, tooltip=name, icon=folium.Icon(color="blue", icon="user")).add_to(m)
         
     st_folium(m, use_container_width=True, height=600, returned_objects=[])
     st.stop()
@@ -527,7 +501,7 @@ with col_map:
     
     m = folium.Map(location=top_dest["coords"], zoom_start=13)
     
-    for i, (orig_name, orig_coords, _) in enumerate(origins_data):
+    for i, (orig_name, orig_coords) in enumerate(origins_data):
         folium.Marker(
             orig_coords, 
             tooltip=f"Origin: {orig_name}",
