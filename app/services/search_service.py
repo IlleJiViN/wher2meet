@@ -67,6 +67,8 @@ def execute_search(
     matched_categories = []
     category_sim_map = {}
     
+    GENERIC_CATEGORIES = {"카페", "백반/한정식", "기타 한식 음식점", "편의점/슈퍼마켓"}
+    
     explicit_matches = []
     query_lower = body.query.lower()
     for cat_name, synonyms in CATEGORY_SYNONYMS.items():
@@ -74,6 +76,12 @@ def execute_search(
         if any(syn in query_lower for syn in valid_keywords):
             explicit_matches.append(cat_name)
             category_sim_map[cat_name] = 1.0
+            
+    # Remove generic categories if a more specific one was explicitly matched
+    if len(explicit_matches) > 1:
+        specific_matches = [c for c in explicit_matches if c not in GENERIC_CATEGORIES]
+        if specific_matches:
+            explicit_matches = specific_matches
             
     # If explicit matches found, ONLY use them (strict filtering)
     if explicit_matches:
@@ -91,20 +99,36 @@ def execute_search(
     
     degrees = (body.radius_meters / 111000.0) * 1.1
     
+    GENERIC_TOKENS = {"카페", "식당", "실내", "학원", "교실", "전문", "가게", "매장", "센터"}
+    raw_tokens = [t for t in clean_name_query.split() if len(t) > 1]
+    tokens = [t for t in raw_tokens if t not in GENERIC_TOKENS]
+    if not tokens:
+        tokens = raw_tokens if raw_tokens else [clean_name_query]
+
+    name_like_clauses = []
+    for idx, token in enumerate(tokens):
+        name_like_clauses.append(f"name ILIKE :token_{idx}")
+        
+    name_like_sql = " OR ".join(name_like_clauses)
+    if not name_like_sql:
+        name_like_sql = "1=0"
+        
     if matched_categories:
         cat_placeholders = ", ".join([f":cat_{i}" for i in range(len(matched_categories))])
-        # Allow places that match the categories OR places that have the exact search query in their name
-        category_filter_sql = f"AND (category IN ({cat_placeholders}) OR name ILIKE :query_like)"
+        # Allow places that match the categories OR places that have any meaningful search token in their name
+        category_filter_sql = f"AND (category IN ({cat_placeholders}) OR {name_like_sql})"
     else:
-        # If no categories matched, at least try to find it in the name
-        category_filter_sql = "AND name ILIKE :query_like"
+        # If no categories matched, try to find it in the name
+        category_filter_sql = f"AND ({name_like_sql})"
     
     sql_params = {
         "lon": lon,
         "lat": lat,
-        "degrees": degrees,
-        "query_like": f"%{clean_name_query}%"
+        "degrees": degrees
     }
+    for idx, token in enumerate(tokens):
+        sql_params[f"token_{idx}"] = f"%{token}%"
+        
     for i, cat in enumerate(matched_categories):
         sql_params[f"cat_{i}"] = cat
     
@@ -160,6 +184,12 @@ def execute_search(
         boost_keywords.extend(["합주", "밴드", "연습실", "studio", "스튜디오"])
     if "노래방" in query_lower or "코인" in query_lower:
         boost_keywords.extend(["노래", "코인", "sing", "노래방"])
+    if "애견" in query_lower or "고양이" in query_lower or "강아지" in query_lower or "펫" in query_lower:
+        boost_keywords.extend(["애견", "고양이", "강아지", "펫", "pet", "동물", "반려동물"])
+    if "루프탑" in query_lower:
+        boost_keywords.extend(["루프탑", "rooftop", "야경", "전망"])
+    if "칵테일" in query_lower or "바" in query_lower or "bar" in query_lower:
+        boost_keywords.extend(["칵테일", "cocktail", "바", "bar", "라운지", "펍", "pub"])
         
     for idx, candidate in enumerate(candidates):
         cat_sim = category_sim_map.get(candidate["category"], 0.0)
@@ -176,9 +206,18 @@ def execute_search(
                     boost += 0.30
                     break
         
-        if clean_name_query and clean_name_query.lower() in cand_name_lower:
-            boost += 1.0
-            cat_sim = 1.0  # Treat exact substring match as a perfect category match
+        # EXACT KEYWORD MATCH BOOST (Massive boost for exact substrings or tokens)
+        if clean_name_query:
+            if clean_name_query.lower() in cand_name_lower:
+                boost += 1.0
+                cat_sim = 1.0  # Treat exact substring match as a perfect category match
+            else:
+                # Token-based boost for cases like '애견 카페' -> '애견'
+                tokens_for_boost = [t for t in clean_name_query.lower().split() if t not in GENERIC_TOKENS]
+                for token in tokens_for_boost:
+                    if len(token) > 1 and token in cand_name_lower:
+                        boost += 0.8
+                        cat_sim = 1.0
 
         if matched_categories:
             final_score = ALPHA_CATEGORY * cat_sim + BETA_NAME * max(name_sim, 0.0) + boost
