@@ -1,0 +1,591 @@
+{
+  "failed": [
+    "인도커리",
+    "방탈출",
+    "편집샵",
+    "소품샵",
+    "안경점",
+    "다이소",
+    "풀빌라"
+  ],
+  "weak": [
+    {
+      "query": "시카고피자",
+      "top_name": "피자스쿨숭실대점",
+      "category": "피자",
+      "score": 0.5687
+    },
+    {
+      "query": "LP바",
+      "top_name": "금강산",
+      "category": "무도 유흥 주점",
+      "score": 0.4562
+    },
+    {
+      "query": "산책로",
+      "top_name": "흐리목",
+      "category": "소공원",
+      "score": 0.556
+    }
+  ],
+  "all": [
+    {
+      "query": "평양냉면",
+      "top_name": "설쌈냉면",
+      "category": "냉면/밀면",
+      "score": 0.6424
+    },
+    {
+      "query": "마라샹궈",
+      "top_name": "상도양꼬치",
+      "category": "마라탕/양꼬치",
+      "score": 0.8334
+    },
+    {
+      "query": "텐동",
+      "top_name": "소바:텐동",
+      "category": "일식 면 요리",
+      "score": 1.8328
+    },
+    {
+      "query": "국밥",
+      "top_name": "만양순대국소머리국밥",
+      "category": "백반/한정식",
+      "score": 1.8591
+    },
+    {
+      "query": "순대국",
+      "top_name": "약수순대국감자탕",
+      "category": "백반/한정식",
+      "score": 1.8574
+    },
+    {
+      "query": "수제버거",
+      "top_name": "맘스터치숭실대입구역점",
+      "category": "버거",
+      "score": 0.8807
+    },
+    {
+      "query": "돈카츠",
+      "top_name": "이든돈카츠",
+      "category": "백반/한정식",
+      "score": 1.8842
+    },
+    {
+      "query": "알리오올리오",
+      "top_name": "알리오올리오스파게티",
+      "category": "파스타/스테이크",
+      "score": 1.5958
+    },
+    {
+      "query": "시카고피자",
+      "top_name": "피자스쿨숭실대점",
+      "category": "피자",
+      "score": 0.5687
+    },
+    {
+      "query": "타코",
+      "top_name": "리코스타코인노래연습장숭실대",
+      "category": "타코/타코야끼",
+      "score": 1.9182
+    },
+    {
+      "query": "케밥",
+      "top_name": "킹케밥",
+      "category": "기타 서양식 음식점",
+      "score": 1.8373
+    },
+    {
+      "query": "마카롱",
+      "top_name": "낙하주의 젤라또",
+      "category": "디저트/마카롱/탕후루",
+      "score": 0.8814
+    },
+    {
+      "query": "크로플",
+      "top_name": "낙하주의 젤라또",
+      "category": "디저트/마카롱/탕후루",
+      "score": 0.8162
+    },
+    {
+      "query": "소금빵",
+      "top_name": "오늘도;소금빵",
+      "category": "빵/도넛",
+      "score": 1.8958
+    },
+    {
+      "query": "베이글",
+      "top_name": "쉬즈베이글",
+      "category": "피자",
+      "score": 1.8333
+    },
+    {
+      "query": "브런치",
+      "top_name": "비건마마",
+      "category": "브런치/비건/채식",
+      "score": 0.8874
+    },
+    {
+      "query": "비건",
+      "top_name": "비건마마",
+      "category": "브런치/비건/채식",
+      "score": 1.8928
+    },
+    {
+      "query": "오마카세",
+      "top_name": "오마카세오사이초밥",
+      "category": "오마카세/파인다이닝",
+      "score": 1.9276
+    },
+    {
+      "query": "회전초밥",
+      "top_name": "스시락회전초밥",
+      "category": "일식 회/초밥",
+      "score": 1.8724
+    },
+    {
+      "query": "양꼬치",
+      "top_name": "상도양꼬치",
+      "category": "마라탕/양꼬치",
+      "score": 1.9394
+    },
+    {
+      "query": "훠궈",
+      "top_name": "상도양꼬치",
+      "category": "마라탕/양꼬치",
+      "score": 0.7774
+    },
+    {
+      "query": "샤브샤브",
+      "top_name": "로향샤브샤브",
+      "category": "국/탕/찌개류",
+      "score": 1.9019
+    },
+    {
+      "query": "밀면",
+      "top_name": "봉평메밀면하우스",
+      "category": "냉면/밀면",
+      "score": 1.8526
+    },
+    {
+      "query": "팟타이",
+      "top_name": "팟타이로얄",
+      "category": "베트남식 전문",
+      "score": 1.9277
+    },
+    {
+      "query": "쌀국수",
+      "top_name": "310쌀국수",
+      "category": "베트남식 전문",
+      "score": 1.9055
+    },
+    {
+      "query": "파인다이닝",
+      "top_name": "오마카세오사이초밥",
+      "category": "오마카세/파인다이닝",
+      "score": 0.8466
+    },
+    {
+      "query": "김치찌개",
+      "top_name": "백채김치찌개",
+      "category": "백반/한정식",
+      "score": 1.8638
+    },
+    {
+      "query": "삼겹살",
+      "top_name": "사백집엄청난삼겹살상도점",
+      "category": "돼지고기 구이/찜",
+      "score": 1.9044
+    },
+    {
+      "query": "소고기",
+      "top_name": "친정집소고기국밥",
+      "category": "돼지고기 구이/찜",
+      "score": 1.8297
+    },
+    {
+      "query": "드립커피",
+      "top_name": "배추공주와페키들의감성놀이터",
+      "category": "카페",
+      "score": 0.7832
+    },
+    {
+      "query": "에스프레소 바",
+      "top_name": "나인에스프레소",
+      "category": "카페",
+      "score": 1.6717
+    },
+    {
+      "query": "디저트 카페",
+      "top_name": "더디저트랩",
+      "category": "빵/도넛",
+      "score": 1.6789
+    },
+    {
+      "query": "루프탑 카페",
+      "top_name": "라인드한남루프탑",
+      "category": "요리 주점",
+      "score": 1.9521
+    },
+    {
+      "query": "베이커리 카페",
+      "top_name": "참베이커리",
+      "category": "빵/도넛",
+      "score": 1.6919
+    },
+    {
+      "query": "스터디 카페",
+      "top_name": "배추공주와페키들의감성놀이터",
+      "category": "카페",
+      "score": 0.8264
+    },
+    {
+      "query": "북카페",
+      "top_name": "배추공주와페키들의감성놀이터",
+      "category": "카페",
+      "score": 0.8571
+    },
+    {
+      "query": "드로잉 카페",
+      "top_name": "배추공주와페키들의감성놀이터",
+      "category": "카페",
+      "score": 0.8185
+    },
+    {
+      "query": "고양이 카페",
+      "top_name": "고양이부엌",
+      "category": "김밥/만두/분식",
+      "score": 1.9685
+    },
+    {
+      "query": "애견 카페",
+      "top_name": "동건스애견카페",
+      "category": "카페",
+      "score": 2.0213
+    },
+    {
+      "query": "이자카야",
+      "top_name": "야키토리 다온",
+      "category": "이자카야/야키토리",
+      "score": 0.9278
+    },
+    {
+      "query": "와인바",
+      "top_name": "마카모예와인바",
+      "category": "요리 주점",
+      "score": 2.1442
+    },
+    {
+      "query": "LP바",
+      "top_name": "금강산",
+      "category": "무도 유흥 주점",
+      "score": 0.4562
+    },
+    {
+      "query": "수제맥주",
+      "top_name": "케그샵프리미엄수제맥주&전통주셀렉샵",
+      "category": "치킨",
+      "score": 1.8812
+    },
+    {
+      "query": "호프집",
+      "top_name": "79대포숭실대점",
+      "category": "요리 주점",
+      "score": 0.6074
+    },
+    {
+      "query": "포장마차",
+      "top_name": "상도실내포장마차",
+      "category": "요리 주점",
+      "score": 1.8987
+    },
+    {
+      "query": "전통주",
+      "top_name": "왕빈자전통주막",
+      "category": "전/부침개",
+      "score": 1.8333
+    },
+    {
+      "query": "칵테일 바",
+      "top_name": "칵테일앤드림",
+      "category": "일반 유흥 주점",
+      "score": 2.0415
+    },
+    {
+      "query": "뮤직바",
+      "top_name": "이티뮤직바",
+      "category": "백반/한정식",
+      "score": 2.173
+    },
+    {
+      "query": "클럽",
+      "top_name": "커브스상도클럽",
+      "category": "헬스장",
+      "score": 1.834
+    },
+    {
+      "query": "스크린야구",
+      "top_name": "좋은동작야구훈련소",
+      "category": "야구장",
+      "score": 0.8779
+    },
+    {
+      "query": "야구 연습장",
+      "top_name": "고고노래연습장",
+      "category": "노래방",
+      "score": 1.598
+    },
+    {
+      "query": "당구장",
+      "top_name": "숭실당구장",
+      "category": "당구장",
+      "score": 1.9558
+    },
+    {
+      "query": "스크린골프",
+      "top_name": "월드스크린골프",
+      "category": "골프 연습장",
+      "score": 1.9082
+    },
+    {
+      "query": "탁구장",
+      "top_name": "빅토리탁구장",
+      "category": "탁구장",
+      "score": 1.9476
+    },
+    {
+      "query": "PC방",
+      "top_name": "하늘다리PC",
+      "category": "PC방",
+      "score": 0.9345
+    },
+    {
+      "query": "코인노래방",
+      "top_name": "샤로스타코인노래방",
+      "category": "타코/타코야끼",
+      "score": 2.1426
+    },
+    {
+      "query": "합주실",
+      "top_name": "이수톤합주실",
+      "category": "합주실",
+      "score": 2.1663
+    },
+    {
+      "query": "댄스 연습실",
+      "top_name": "브리츠댄스연습실숭실대점",
+      "category": "연습실",
+      "score": 2.4666
+    },
+    {
+      "query": "테니스장",
+      "top_name": "서울용마테니스장",
+      "category": "테니스장",
+      "score": 1.9456
+    },
+    {
+      "query": "볼링장",
+      "top_name": "보라매볼링장카페",
+      "category": "볼링장",
+      "score": 1.9268
+    },
+    {
+      "query": "실내 클라이밍",
+      "top_name": "인클라이밍",
+      "category": "클라이밍/암벽등반",
+      "score": 1.709
+    },
+    {
+      "query": "보드게임 카페",
+      "top_name": "와룸보드게임카페",
+      "category": "카페",
+      "score": 2.0289
+    },
+    {
+      "query": "만화방",
+      "top_name": "만화카페토라비",
+      "category": "만화카페",
+      "score": 0.9145
+    },
+    {
+      "query": "사격장",
+      "top_name": "남대문실탄사격장",
+      "category": "사격장/양궁장",
+      "score": 1.9167
+    },
+    {
+      "query": "롤러장",
+      "top_name": "롤러팡팡스케이트장",
+      "category": "아이스링크/스케이트장",
+      "score": 0.9149
+    },
+    {
+      "query": "아이스링크",
+      "top_name": "롤러팡팡스케이트장",
+      "category": "아이스링크/스케이트장",
+      "score": 0.908
+    },
+    {
+      "query": "수영장",
+      "top_name": "아이맘어린이전용수영장",
+      "category": "수영장",
+      "score": 1.9067
+    },
+    {
+      "query": "크로스핏",
+      "top_name": "얼티밋크로스핏",
+      "category": "헬스장",
+      "score": 1.8889
+    },
+    {
+      "query": "필라테스",
+      "top_name": "허브필라테스",
+      "category": "요가/필라테스 학원",
+      "score": 1.8967
+    },
+    {
+      "query": "요가",
+      "top_name": "오르벳요가상도점",
+      "category": "요가/필라테스 학원",
+      "score": 1.874
+    },
+    {
+      "query": "헬스장",
+      "top_name": "스마트헬스장",
+      "category": "헬스장",
+      "score": 1.9419
+    },
+    {
+      "query": "PT",
+      "top_name": "좋은습관PTSTUDIO상도",
+      "category": "헬스장",
+      "score": 1.7847
+    },
+    {
+      "query": "네일샵",
+      "top_name": "드메인네일샵",
+      "category": "네일숍",
+      "score": 1.9338
+    },
+    {
+      "query": "바버샵",
+      "top_name": "올드스바버샵",
+      "category": "미용실",
+      "score": 2.1738
+    },
+    {
+      "query": "미용실",
+      "top_name": "우정미용실",
+      "category": "미용실",
+      "score": 1.9283
+    },
+    {
+      "query": "피부과",
+      "top_name": "서울레전드피부과의원",
+      "category": "피부 관리실",
+      "score": 1.1768
+    },
+    {
+      "query": "안과",
+      "top_name": "김용안과자점",
+      "category": "빵/도넛",
+      "score": 1.7835
+    },
+    {
+      "query": "약국",
+      "top_name": "렉슬 4층 약국",
+      "category": "카페",
+      "score": 1.768
+    },
+    {
+      "query": "팝업스토어",
+      "top_name": "복순도가팝업스토어",
+      "category": "팝업스토어/플리마켓",
+      "score": 1.9121
+    },
+    {
+      "query": "서점",
+      "top_name": "곰북스서점",
+      "category": "서점",
+      "score": 1.9113
+    },
+    {
+      "query": "꽃집",
+      "top_name": "연남동벚꽃집",
+      "category": "카페",
+      "score": 1.8513
+    },
+    {
+      "query": "올리브영",
+      "top_name": "투썸플레이스올리브영",
+      "category": "카페",
+      "score": 1.844
+    },
+    {
+      "query": "편의점",
+      "top_name": "염색편의점",
+      "category": "미용실",
+      "score": 1.7783
+    },
+    {
+      "query": "마트",
+      "top_name": "스마트짐헬스PT상도점",
+      "category": "헬스장",
+      "score": 1.8128
+    },
+    {
+      "query": "글램핑",
+      "top_name": "나무아래캠핑포차",
+      "category": "캠핑/글램핑",
+      "score": 0.8898
+    },
+    {
+      "query": "게스트하우스",
+      "top_name": "하이게스트하우스",
+      "category": "독서실/스터디 카페",
+      "score": 1.8453
+    },
+    {
+      "query": "호텔",
+      "top_name": "나호텔캐터링지점법학관점주",
+      "category": "카페",
+      "score": 1.8374
+    },
+    {
+      "query": "모텔",
+      "top_name": "모텔",
+      "category": "미용실",
+      "score": 1.8156
+    },
+    {
+      "query": "캠핑장",
+      "top_name": "나무아래캠핑포차",
+      "category": "캠핑/글램핑",
+      "score": 0.9143
+    },
+    {
+      "query": "테마파크",
+      "top_name": "씨랄라워터파크",
+      "category": "테마파크/놀이공원",
+      "score": 0.7511
+    },
+    {
+      "query": "놀이공원",
+      "top_name": "씨랄라워터파크",
+      "category": "테마파크/놀이공원",
+      "score": 0.9029
+    },
+    {
+      "query": "수목원",
+      "top_name": "수목원가는길안양예술공원점",
+      "category": "기타공원",
+      "score": 1.8842
+    },
+    {
+      "query": "산책로",
+      "top_name": "흐리목",
+      "category": "소공원",
+      "score": 0.556
+    }
+  ]
+}
