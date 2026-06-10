@@ -18,6 +18,7 @@ class SearchRequest(BaseModel):
     similarity_threshold: float = 0.25
     top_k: int = 3
     engine_version: str = "v5"
+    routing_mode: str = Field("distance", description="Routing mode: 'distance' (straight line) or 'time' (OSRM travel time)")
 
 
 class PlaceSearchResult(BaseModel):

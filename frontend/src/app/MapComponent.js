@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, Polyline } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -39,11 +39,14 @@ function MapBounds({ origins, results }) {
     if (!map) return;
     const points = [];
     if (origins) origins.forEach(o => points.push([o.latitude, o.longitude]));
-    if (results) results.forEach(r => points.push([r.latitude, r.longitude]));
+    if (results && results.length > 0) {
+      // Only fit bounds to origins and top 3 results to avoid zooming out too much
+      results.slice(0, 3).forEach(r => points.push([r.latitude, r.longitude]));
+    }
     
     if (points.length > 0) {
       const bounds = L.latLngBounds(points);
-      map.fitBounds(bounds, { padding: [40, 40] });
+      map.flyToBounds(bounds, { padding: [40, 40], duration: 1.5 });
     }
   }, [map, origins, results]);
   return null;
@@ -56,11 +59,11 @@ export default function MapComponent({ origins, results }) {
     : [37.5665, 126.9780];
   
   return (
-    <div className="w-full h-[320px] rounded-2xl overflow-hidden shadow-md border border-gray-200 z-0 relative">
-      <MapContainer center={defaultCenter} zoom={12} style={{ height: '100%', width: '100%', zIndex: 0 }}>
+    <div className="w-full h-[40vh] rounded-[24px] overflow-hidden shadow-sm border border-gray-100 z-0 relative">
+      <MapContainer center={defaultCenter} zoom={12} style={{ height: '100%', width: '100%', zIndex: 0 }} zoomControl={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
         
         {origins && origins.map((o) => (
@@ -81,6 +84,18 @@ export default function MapComponent({ origins, results }) {
               </div>
             </Popup>
           </Marker>
+        ))}
+
+        {/* Draw connection lines to the 1st place */}
+        {results && results.length > 0 && origins && origins.map(o => (
+          <Polyline 
+            key={`line-${o.id}`} 
+            positions={[
+              [o.latitude, o.longitude],
+              [results[0].latitude, results[0].longitude]
+            ]} 
+            pathOptions={{ color: '#3182f6', weight: 2, dashArray: '5, 8', opacity: 0.6 }} 
+          />
         ))}
         
         <MapBounds origins={origins} results={results} />

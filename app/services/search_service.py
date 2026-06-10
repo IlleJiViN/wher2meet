@@ -5,11 +5,83 @@ from sqlalchemy import text
 from sentence_transformers import SentenceTransformer
 from typing import List, Optional
 
+import requests
 from app.models.schemas import SearchRequest, SearchResponse, PlaceSearchResult
 from categories import CATEGORY_DESCRIPTIONS, CATEGORY_SYNONYMS
 
 ALPHA_CATEGORY = 0.7
 BETA_NAME = 0.3
+
+def calculate_time_based_center(users: List) -> tuple[float, float]:
+    if not users or len(users) == 0:
+        return 37.5665, 126.9780
+    if len(users) == 1:
+        return users[0].latitude, users[0].longitude
+
+    lats = [u.latitude for u in users]
+    lons = [u.longitude for u in users]
+    min_lat, max_lat = min(lats), max(lats)
+    min_lon, max_lon = min(lons), max(lons)
+    
+    lat_diff = max_lat - min_lat
+    lon_diff = max_lon - min_lon
+    
+    if lat_diff < 0.005 and lon_diff < 0.005:
+        # Fallback to average if they are very close
+        return sum(lats)/len(lats), sum(lons)/len(lons)
+        
+    # Expand bounding box by 20%
+    pad_lat = max(lat_diff * 0.2, 0.01)
+    pad_lon = max(lon_diff * 0.2, 0.01)
+    
+    grid_lats = np.linspace(min_lat - pad_lat, max_lat + pad_lat, 6)
+    grid_lons = np.linspace(min_lon - pad_lon, max_lon + pad_lon, 6)
+    
+    grid_points = []
+    for glat in grid_lats:
+        for glon in grid_lons:
+            grid_points.append((glat, glon))
+            
+    # Prepare OSRM request
+    # sources: users, destinations: grid_points
+    coords_list = []
+    for u in users:
+        coords_list.append(f"{u.longitude},{u.latitude}")
+    for gp in grid_points:
+        coords_list.append(f"{gp[1]},{gp[0]}")
+        
+    coords_str = ";".join(coords_list)
+    sources_str = ";".join(str(i) for i in range(len(users)))
+    destinations_str = ";".join(str(i) for i in range(len(users), len(coords_list)))
+    
+    url = f"http://router.project-osrm.org/table/v1/driving/{coords_str}?sources={sources_str}&destinations={destinations_str}"
+    
+    try:
+        res = requests.get(url, timeout=5)
+        data = res.json()
+        if data.get("code") == "Ok":
+            durations = data["durations"] # size: len(users) x len(grid_points)
+            
+            best_score = float('inf')
+            best_idx = 0
+            
+            for j in range(len(grid_points)):
+                col = [durations[i][j] for i in range(len(users))]
+                if None in col:
+                    continue
+                # Score = Max Time + 0.1 * Sum Time (Minimizes max travel time while keeping total low)
+                score = max(col) + 0.1 * sum(col)
+                if score < best_score:
+                    best_score = score
+                    best_idx = j
+                    
+            if best_score < float('inf'):
+                return grid_points[best_idx][0], grid_points[best_idx][1]
+    except Exception as e:
+        print("OSRM error:", e)
+        
+    # Fallback to euclidean center
+    return sum(lats)/len(lats), sum(lons)/len(lons)
 
 def execute_search(
     body: SearchRequest,
@@ -26,13 +98,16 @@ def execute_search(
     if body.users:
         valid_users = [u for u in body.users if u.latitude is not None and u.longitude is not None]
         if valid_users:
-            total_weight = sum(u.weight for u in valid_users)
-            if total_weight > 0:
-                lat = sum(u.latitude * u.weight for u in valid_users) / total_weight
-                lon = sum(u.longitude * u.weight for u in valid_users) / total_weight
+            if getattr(body, "routing_mode", "distance") == "time":
+                lat, lon = calculate_time_based_center(valid_users)
             else:
-                lat = sum(u.latitude for u in valid_users) / len(valid_users)
-                lon = sum(u.longitude for u in valid_users) / len(valid_users)
+                total_weight = sum(u.weight for u in valid_users)
+                if total_weight > 0:
+                    lat = sum(u.latitude * u.weight for u in valid_users) / total_weight
+                    lon = sum(u.longitude * u.weight for u in valid_users) / total_weight
+                else:
+                    lat = sum(u.latitude for u in valid_users) / len(valid_users)
+                    lon = sum(u.longitude for u in valid_users) / len(valid_users)
             
     if lat is None or lon is None:
         raise ValueError("Either user_latitude/user_longitude or users list must be provided.")
@@ -100,8 +175,10 @@ def execute_search(
     degrees = (body.radius_meters / 111000.0) * 1.1
     
     GENERIC_TOKENS = {"카페", "식당", "실내", "학원", "교실", "전문", "가게", "매장", "센터"}
+    STOPWORDS = {"있는", "없는", "먹기", "놀기", "하기", "좋은", "예쁜", "맛있는", "데려갈", "수", "할", "갈", "곳", "추천", "조용한", "분위기", "가기"}
+    
     raw_tokens = [t for t in clean_name_query.split() if len(t) > 1]
-    tokens = [t for t in raw_tokens if t not in GENERIC_TOKENS]
+    tokens = [t for t in raw_tokens if t not in GENERIC_TOKENS and t not in STOPWORDS]
     if not tokens:
         tokens = raw_tokens if raw_tokens else [clean_name_query]
 
@@ -213,7 +290,7 @@ def execute_search(
                 cat_sim = 1.0  # Treat exact substring match as a perfect category match
             else:
                 # Token-based boost for cases like '애견 카페' -> '애견'
-                tokens_for_boost = [t for t in clean_name_query.lower().split() if t not in GENERIC_TOKENS]
+                tokens_for_boost = [t for t in clean_name_query.lower().split() if t not in GENERIC_TOKENS and t not in STOPWORDS]
                 for token in tokens_for_boost:
                     if len(token) > 1 and token in cand_name_lower:
                         boost += 0.8
@@ -233,7 +310,7 @@ def execute_search(
             })
     
     scored_candidates.sort(
-        key=lambda x: x["cat_score"] - (x["candidate"].get("distance_meters", 10000) / 10000.0) * 0.5, 
+        key=lambda x: x["final_score"] - (x["candidate"].get("distance_meters", 10000) / 10000.0) * 0.5, 
         reverse=True
     )
     
